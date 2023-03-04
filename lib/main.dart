@@ -1,5 +1,7 @@
 import 'package:artie/constants.dart';
 import 'package:artie/screens/splash/splash_screen.dart';
+import 'package:artie/screens/userViews/childByUser.dart';
+import 'package:artie/screens/userViews/login.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -24,7 +26,8 @@ class MyApp extends StatelessWidget {
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SplashScreen(),
+     // home: SplashScreen(),
+   home: HomeScreen(),
     );
   }
 }
