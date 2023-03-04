@@ -1,3 +1,4 @@
+import 'package:artie/screens/userViews/addImageTest.dart';
 import 'package:artie/services/childAPI.dart';
 import 'package:flutter/material.dart';
 
@@ -5,11 +6,10 @@ class AddChild extends StatelessWidget {
 
 
 
+
     final _formKey = GlobalKey<FormState>();
 
-   String _name =" ";
-   int _age=1;
-  
+
   
   @override
   Widget build(BuildContext context) {
@@ -26,8 +26,8 @@ class AddChild extends StatelessWidget {
                   }
                   return null;
                 },
-                onSaved: (String? value) {
-                  _name = value!;
+                onChanged: (String? value) {
+                  ChildApiService.name = value!;
                 },
               ),
           SizedBox(height: 16.0),
@@ -39,6 +39,13 @@ class AddChild extends StatelessWidget {
           ),
              ElevatedButton(
                 onPressed: () {
+                  Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ImageUploadScreen(),
+      ),
+    );
+                  
                   // TODO: Pick an image from the gallery
                 },
                 child: Text('Choose an Image'),
@@ -54,8 +61,7 @@ class AddChild extends StatelessWidget {
           onPressed: () {
             //  if (_formKey.currentState!.validate()) {
               //      _formKey.currentState!.save();
-            ChildApiService.addOnce(_name!,_age!);
-            print("laaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaobject");
+           // ChildApiService.addOnce(_name,_age);
             // TODO: Handle form submission
             Navigator.of(context).pop();},
           //},
@@ -65,3 +71,4 @@ class AddChild extends StatelessWidget {
     );
   }
 }
+

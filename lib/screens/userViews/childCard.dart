@@ -12,7 +12,7 @@ class UserCard extends StatelessWidget {
       child: Column(
         children: [
           
-          Image.network('http://192.168.1.103:9090/img/'+imageUrl, width: 200,
+          Image.network('http://192.168.50.73:9090/img/'+imageUrl, width: 200,
             height: 140,
             fit: BoxFit.cover,
           ),

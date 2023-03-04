@@ -9,6 +9,9 @@ import 'childCard.dart';
 
 
 class ChildByUser extends StatefulWidget {
+ //  final void Function() onUpdateChilds;
+
+ // ChildByUser({required this.onUpdateChilds});
    
   @override
   _ChildByUserState createState() => _ChildByUserState();
@@ -21,18 +24,20 @@ class _ChildByUserState extends State<ChildByUser> {
   void initState() {
     super.initState();
   _loadChilds();
-    //_loadProducts();
+
   }
 
-  void _loadChilds() async {
+   void _loadChilds() async {
     final List<Child> childs = await ChildApiService.getChildsByUser();
     print(childs);
     setState(() {
       _childs = childs;
     });
   }
+   void updateChilds() {
+    _loadChilds();
+  }
  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

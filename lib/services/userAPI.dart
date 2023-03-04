@@ -3,7 +3,7 @@ import 'package:artie/models/user.dart';
 import 'package:http/http.dart' as http;
 
 class UserApiService {
-  static const String _baseUrl = "http://192.168.1.103:9090";
+  static const String _baseUrl = "http://192.168.50.73:9090";
  static User? _user;
 
   // Se connecter avec email et mot de passe
@@ -21,8 +21,7 @@ class UserApiService {
         print("okkkk");
         final Map<String, dynamic> responseData = json.decode(response.body);
 _user= User.fromJson(responseData['user']);
-//print(_user!.name); // prints "farah"
-        // print(response.body);
+
  return null;
  
  }
