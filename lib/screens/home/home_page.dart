@@ -6,6 +6,9 @@ import 'package:artie_flutter/screens/home/tab/pizza_tab.dart';
 import 'package:artie_flutter/screens/home/tab/smoothie_tab.dart';
 import 'package:flutter/material.dart';
 
+import '../../components/custom_bottom_nav_bar.dart';
+import '../../enums.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
   static String routeName = "/home";
@@ -95,7 +98,9 @@ class _HomePageState extends State<HomePage> {
             ]),
           )
         ]),
+         bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.home),
       ),
+      
     );
   }
 }

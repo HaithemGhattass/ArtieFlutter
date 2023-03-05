@@ -1,3 +1,4 @@
+import 'package:artie_flutter/screens/profile/profile_screen.dart';
 import 'package:flutter/widgets.dart';
 //import 'package:shop_app/screens/cart/cart_screen.dart';
 import 'package:artie_flutter/screens/complete_profile/complete_profile_screen.dart';
@@ -24,6 +25,7 @@ final Map<String, WidgetBuilder> routes = {
   CompleteProfileScreen.routeName: (context) => CompleteProfileScreen(),
   OtpScreen.routeName: (context) => OtpScreen(),
   HomePage.routeName: (context) => HomePage(),
+  ProfileScreen.routeName: (context) => ProfileScreen(),
 
   
 };

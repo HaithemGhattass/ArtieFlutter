@@ -22,7 +22,7 @@ class _SignUpFormState extends State<SignUpForm> {
   String? pwd;
   String? conform_password;
   bool remember = false;
-  final String baseUrl = "192.168.1.79:9090";
+  final String baseUrl = "192.168.1.8:9090";
   final List<String?> errors = [];
 
   void addError({String? error}) {

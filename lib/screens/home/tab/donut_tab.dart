@@ -17,7 +17,7 @@ class DonutTab extends StatelessWidget {
  
   List<GameData> games = [];
   late Future<bool> fetchedGames;
-  final String baseUrl = "192.168.1.79:9090";
+  final String baseUrl = "192.168.1.8:9090";
   Future<bool> fetchGames() async {
     http.Response response = await http.get(Uri.http(baseUrl, "/image"));
     List<dynamic> gamesFromServer = json.decode(response.body);

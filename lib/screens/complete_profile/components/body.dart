@@ -5,6 +5,7 @@ import 'package:artie_flutter/size_config.dart';
 import 'complete_profile_form.dart';
 
 class Body extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -17,9 +18,9 @@ class Body extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: SizeConfig.screenHeight * 0.03),
-                Text("Complete Profile", style: headingStyle),
+                Text("Add Children", style: headingStyle),
                 Text(
-                  "Complete your details or continue  \nwith social media",
+                  "Complete your Children details",
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.06),

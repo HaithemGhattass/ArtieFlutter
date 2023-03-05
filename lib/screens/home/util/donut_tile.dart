@@ -7,7 +7,7 @@ class DonutTile extends StatelessWidget {
   
   
    final GameData game;
-  final String baseUrl = "192.168.1.79:9090";
+  final String baseUrl = "192.168.1.8:9090";
 
   final double borderRadius = 12;
   const DonutTile(
@@ -32,7 +32,7 @@ class DonutTile extends StatelessWidget {
               Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                 Container(
                     decoration: BoxDecoration(
-                        color: game.color,
+                        color: Colors.grey,
                         borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(borderRadius),
                             topRight: Radius.circular(borderRadius))),
@@ -40,7 +40,7 @@ class DonutTile extends StatelessWidget {
                     child: Text(game.childAge.toString()
                       ,
                       style: TextStyle(
-                          color: game.color,
+                          color: Colors.black,
                           fontWeight: FontWeight.bold,
                           fontSize: 18),
                     ))
