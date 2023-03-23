@@ -3,6 +3,9 @@ import 'package:artie/screens/splash/splash_screen.dart';
 import 'package:artie/screens/userViews/childByUser.dart';
 import 'package:artie/screens/userViews/login.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +20,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
+      
+        localizationsDelegates: [
+    AppLocalizations.delegate,
+    GlobalMaterialLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+  ],
+  supportedLocales: [
+    Locale('en'),
+    Locale('fr'), 
+    Locale('ar'), 
+
+  ],
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         fontFamily: "Muli",

@@ -1,6 +1,9 @@
+
 import 'package:artie/screens/userViews/addImageTest.dart';
 import 'package:artie/services/childAPI.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class AddChild extends StatelessWidget {
 
@@ -19,7 +22,7 @@ class AddChild extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
             TextFormField(
-                decoration: InputDecoration(labelText: 'Name'),
+                decoration: InputDecoration(labelText: AppLocalizations.of(context)!.name),
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your name';
@@ -32,10 +35,12 @@ class AddChild extends StatelessWidget {
               ),
           SizedBox(height: 16.0),
           TextField(
-            decoration: InputDecoration(
-              labelText: 'Birthdate',
-            ),
-            keyboardType: TextInputType.datetime,
+            decoration: InputDecoration(labelText: 'Age'),
+             
+                onChanged: (String? value) {
+                  ChildApiService.age = value!;
+                },
+            keyboardType: TextInputType.number,
           ),
              ElevatedButton(
                 onPressed: () {

@@ -1,8 +1,6 @@
 import 'package:artie/models/child.dart';
-import 'package:artie/models/user.dart';
 import 'package:artie/screens/userViews/addChild.dart';
 import 'package:artie/services/childAPI.dart';
-import 'package:artie/services/userAPI.dart';
 import 'package:flutter/material.dart';
 
 import 'childCard.dart';
@@ -23,7 +21,7 @@ class _ChildByUserState extends State<ChildByUser> {
   @override
   void initState() {
     super.initState();
-  _loadChilds();
+ _loadChilds();
 
   }
 
@@ -41,7 +39,8 @@ class _ChildByUserState extends State<ChildByUser> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Home')),
+         appBar: AppBar(title: Text('All Child'),backgroundColor: Colors.amber[200],
+),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -50,7 +49,7 @@ class _ChildByUserState extends State<ChildByUser> {
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               children: _childs.map((child) {
-                return UserCard(imageUrl: child.image,name:child.name);
+                return UserCard(imageUrl: child.image,name:child.name,age:child.age);
               }).toList(),
             ),
             SizedBox(

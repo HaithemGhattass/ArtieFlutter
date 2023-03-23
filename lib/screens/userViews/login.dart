@@ -2,6 +2,8 @@ import 'package:artie/screens/userViews/childByUser.dart';
 import 'package:artie/services/childAPI.dart';
 import 'package:artie/services/userAPI.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -25,8 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Home')),
-      body: SingleChildScrollView(
+   appBar: AppBar(title: Text(AppLocalizations.of(context)!.login),backgroundColor: Colors.amber[400],) ,     body: SingleChildScrollView(
         child: Column(
           children: [
      ElevatedButton(

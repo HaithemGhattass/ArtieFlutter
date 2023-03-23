@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:artie/models/user.dart';
+import 'package:artie/services/server_URL.dart';
 import 'package:http/http.dart' as http;
 
 class UserApiService {
-  static const String _baseUrl = "http://192.168.50.73:9090";
  static User? _user;
 
   // Se connecter avec email et mot de passe
@@ -11,7 +11,7 @@ class UserApiService {
       String email, String pwd) async {
     try {
       final response = await http.post(
-      Uri.parse(_baseUrl+"/user"),
+      Uri.parse(Server_URL.baseUrl+"/user"),
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode({'email': email, 'pwd': pwd}),
     );
@@ -30,7 +30,7 @@ _user= User.fromJson(responseData['user']);
     }
   }
   static Future<List<User>> getUsers() async {
-    final response = await http.get(Uri.parse(_baseUrl+"/user"));
+    final response = await http.get(Uri.parse(Server_URL.baseUrl+"/user"));
     final json = jsonDecode(response.body);
     return json.map<User>((productJson) => User(
       id: productJson['_id'],
