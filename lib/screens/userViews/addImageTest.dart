@@ -31,31 +31,79 @@ class _ImageUploadScreenState extends State<ImageUploadScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Image Upload')),
+      appBar: AppBar(title: Text('Add Image'),backgroundColor: Colors.white,iconTheme: IconThemeData(color: Colors.black),),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (_image != null) Image.file(_image!),
-            ElevatedButton(
-              onPressed: () => _pickImage(ImageSource.gallery),
-              child: const Text('Pick from Gallery'),
-            ),
-            ElevatedButton(
-              onPressed: () => _pickImage(ImageSource.camera),
-              child: const Text('Take a Picture'),
-            ),
-            ElevatedButton(
-          onPressed: () 
-              {ChildApiService.AddChild(_image);
-              
 
-    Navigator.of(
-      context,
-  
-    ).pop();},
-              child: const Text('Upload Image'),
-            ),
+
+Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly, // ou MainAxisAlignment.spaceBetween
+ children: [
+
+
+  Align(
+    alignment: Alignment.bottomRight,
+  child:Container (alignment: Alignment.center,
+                      height: 52,
+                      width: 52,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFF2BEA1),
+                        shape: BoxShape.circle,
+                      ), child:
+                        IconButton(
+      onPressed: () => _pickImage(ImageSource.gallery),
+      icon: Icon(Icons.photo_library),
+    ),
+  ),
+),
+
+
+Align(
+    alignment: Alignment.bottomRight,
+  child:Container (alignment: Alignment.center,
+                      height: 52,
+                      width: 52,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFF2BEA1),
+                        shape: BoxShape.circle,
+                      ), child:
+                        IconButton(
+      onPressed: () => _pickImage(ImageSource.camera),
+      icon: Icon(Icons.photo_camera),
+    ),
+  ),
+),
+
+Align(
+    alignment: Alignment.bottomRight,
+  child:Container (alignment: Alignment.center,
+                      height: 52,
+                      width: 52,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFF2BEA1),
+                        shape: BoxShape.circle,
+                      ), child:
+                        IconButton(
+      onPressed: () => {  ChildApiService.AddChild(_image),
+    Navigator.of(context).pop()},
+      icon: Icon(Icons.cloud_upload),
+    ),
+  ),
+),
+
+
+ ]
+),
+
+
+
+
+
+
+
           ],
         ),
       ),

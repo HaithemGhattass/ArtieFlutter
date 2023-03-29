@@ -9,6 +9,7 @@ class UserApiService {
   // Se connecter avec email et mot de passe
  static Future<String?> signInWithEmailAndPassword(
       String email, String pwd) async {
+        print("je test");
     try {
       final response = await http.post(
       Uri.parse(Server_URL.baseUrl+"/user"),
@@ -22,12 +23,13 @@ class UserApiService {
         final Map<String, dynamic> responseData = json.decode(response.body);
 _user= User.fromJson(responseData['user']);
 
- return null;
+ return "true";
  
  }
     } catch (error) {
       return error.toString();
     }
+    return "false";
   }
   static Future<List<User>> getUsers() async {
     final response = await http.get(Uri.parse(Server_URL.baseUrl+"/user"));

@@ -2,6 +2,7 @@
 import 'package:artie/models/image.dart';
 import 'package:artie/screens/userViews/addChild.dart';
 import 'package:artie/screens/userViews/imagrCard.dart';
+import 'package:artie/screens/userViews/my_tab.dart';
 import 'package:artie/services/imageAPI.dart';
 import 'package:flutter/material.dart';
 
@@ -37,6 +38,33 @@ class _ImageListByChildState extends State<ImageListByChild> {
    void updateImages() {
     _loadImages();
   }
+    // my tabs
+  List<Widget> myTabs = const [
+    // donut tab
+    MyTab(
+      iconPath: 'lib/icons/donut.png',
+    ),
+
+    // burger tab
+    MyTab(
+      iconPath: 'lib/icons/burger.png',
+    ),
+
+    // smoothie tab
+    MyTab(
+      iconPath: 'lib/icons/smoothie.png',
+    ),
+
+    // pancake tab
+    MyTab(
+      iconPath: 'lib/icons/pancakes.png',
+    ),
+
+    // pizza tab
+    MyTab(
+      iconPath: 'lib/icons/pizza.png',
+    ),
+  ];
  
   @override
   Widget build(BuildContext context) {
@@ -44,8 +72,10 @@ class _ImageListByChildState extends State<ImageListByChild> {
      // backgroundColor: Colors.transparent,
  
         
-      appBar: AppBar(title: Text('Image List By Child'),backgroundColor: Colors.amber[400],),
+      appBar: AppBar(title: Text('Image List By Child'),backgroundColor: Colors.white,iconTheme: IconThemeData(color: Colors.black),),
       body: SingleChildScrollView(
+        padding: const EdgeInsets.all(12.0),
+        
         child: Column(
           children: [
             GridView.count(
@@ -53,7 +83,9 @@ class _ImageListByChildState extends State<ImageListByChild> {
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               children: _images.map((image) {
-                return ImageCard(imageUrl: image.image);
+                  int index = _images.indexOf(image);
+
+                return ImageCard(imageUrl: image.image,index:index );
               }).toList(),
             ),
    

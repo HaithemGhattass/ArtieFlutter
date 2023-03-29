@@ -3,6 +3,7 @@ import 'package:artie/screens/userViews/addImageTest.dart';
 import 'package:artie/services/childAPI.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 
 class AddChild extends StatelessWidget {
@@ -42,7 +43,9 @@ class AddChild extends StatelessWidget {
                 },
             keyboardType: TextInputType.number,
           ),
-             ElevatedButton(
+             OutlinedButton.icon(
+              icon:Icon(Icons.cloud_upload) ,
+              label: Text("Choose an Image"),
                 onPressed: () {
                   Navigator.push(
       context,
@@ -53,7 +56,6 @@ class AddChild extends StatelessWidget {
                   
                   // TODO: Pick an image from the gallery
                 },
-                child: Text('Choose an Image'),
               ),
         ],
       ),

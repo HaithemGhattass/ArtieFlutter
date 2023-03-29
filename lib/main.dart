@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
 
   ],
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
+        scaffoldBackgroundColor: kBackgroundColor,
         fontFamily: "Muli",
         textTheme: TextTheme(
           bodyText1: TextStyle(color: kTextColor),
