@@ -3,6 +3,7 @@ import 'package:artie/screens/userViews/addChild.dart';
 import 'package:artie/services/childAPI.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'childCard.dart';
 
@@ -62,21 +63,38 @@ class _ChildByUserState extends State<ChildByUser> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
+                 /* Align(
+ alignment: Alignment.topRight,
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: 42,
+                      width: 52,
+
+                    ),
+                  ),*/
+                  Padding(padding: EdgeInsets.all(16.0),),
+                Text(
+ AppLocalizations.of(context)!.imaginarium
+ ,
+  style: TextStyle(
+    color: Colors.grey[800], 
+     fontWeight: FontWeight.bold, // Rendre le texte en gras
+    fontSize: 24.0,
+  ),
+  textAlign: TextAlign.center, // Aligner le texte au centre
+),
                   Align(
                     alignment: Alignment.topRight,
                     child: Container(
                       alignment: Alignment.center,
-                      height: 52,
+                      height: 30,
                       width: 52,
-                  
-                    //  child: SvgPicture.asset("assets/icons/menu.svg"),
+                
                     ),
                   ),
                   Text(
-                    "Good Mornign",
-                    //style: Theme.of(context)
-                       // .textTheme
-                        //.copyWith(fontWeight: FontWeight.w900),
+                    AppLocalizations.of(context)!.wedLoveToHelpYouCreateSpecialSpaces
+                  
                   ),
 Align(
     alignment: Alignment.bottomRight,

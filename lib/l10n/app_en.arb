@@ -1,7 +1,13 @@
 {
   "login": "login!",
-  "name": "name",
-  "@helloWorld": {
-    "description": "The conventional newborn programmer greeting"
-  }
+  "name": "Child Name",
+  "wedLoveToHelpYouCreateSpecialSpaces": "We'd want to help you create special spaces for your children, where our robot can draw fun and age-appropriate pictures for them",
+  "imaginarium":"Imaginarium",
+  "craeteSpace":"Craete Space",
+  "age":"Age",
+  "chooseAnImage":"Choose an Image",
+  "save":"Save",
+  "cancel":"Cancel",
+  "doYouWantToDesignTheImage":"Do you want to design the image?"
+
 }

@@ -1,6 +1,8 @@
 import 'package:artie/screens/userViews/imageListByChild.dart';
 import 'package:artie/services/server_URL.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class ImageCard extends StatelessWidget {
   final String imageUrl;
@@ -20,12 +22,31 @@ class ImageCard extends StatelessWidget {
     final colorIndex = index % colors.length; // to cycle between colors
 
     return InkWell(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => ImageListByChild()),
+  onTap: () {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(AppLocalizations.of(context)!.doYouWantToDesignTheImage),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                // TODO: Ajouter le code pour imprimer l'image ici
+                Navigator.of(context).pop();
+              },
+              child: Text(AppLocalizations.of(context)!.save, style: TextStyle(color:Color(0xFFF5CEB8),)),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(AppLocalizations.of(context)!.cancel, style: TextStyle(color: Colors.grey )),
+            ),
+          ],
         );
       },
+    );
+  },
       child: Card(
         
         child: Container(

@@ -18,34 +18,54 @@ class AddChild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('My Form'),
+      title: Text(AppLocalizations.of(context)!.craeteSpace),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-            TextFormField(
-                decoration: InputDecoration(labelText: AppLocalizations.of(context)!.name),
-                validator: (String? value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your name';
-                  }
-                  return null;
-                },
+           TextFormField(
+      decoration: InputDecoration(
+        labelText: AppLocalizations.of(context)!.name,
+        labelStyle: TextStyle(color: Colors.grey),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.grey),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.grey),
+        ),
+      ),
+      validator: (String? value) {
+        if (value == null || value.isEmpty) {
+          return 'Please enter your name';
+        }
+        return null;
+      },
                 onChanged: (String? value) {
                   ChildApiService.name = value!;
                 },
               ),
           SizedBox(height: 16.0),
-          TextField(
-            decoration: InputDecoration(labelText: 'Age'),
-             
+           TextField(
+      decoration: InputDecoration(
+        labelText: AppLocalizations.of(context)!.age,
+        labelStyle: TextStyle(color: Colors.grey),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.grey),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.grey),
+        ),
+      ),  
                 onChanged: (String? value) {
                   ChildApiService.age = value!;
                 },
             keyboardType: TextInputType.number,
           ),
+         
+         
              OutlinedButton.icon(
               icon:Icon(Icons.cloud_upload) ,
-              label: Text("Choose an Image"),
+              
+              label: Text( AppLocalizations.of(context)!.chooseAnImage,style: TextStyle(color: Colors.black)),
                 onPressed: () {
                   Navigator.push(
       context,
@@ -62,17 +82,21 @@ class AddChild extends StatelessWidget {
       actions: [
         ElevatedButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: Text('Cancel'),
+          child: Text(AppLocalizations.of(context)!.cancel),
+      style: ElevatedButton.styleFrom(
+      primary: Colors.grey,
+    ),
         ),
         ElevatedButton(
           onPressed: () {
-            //  if (_formKey.currentState!.validate()) {
-              //      _formKey.currentState!.save();
-           // ChildApiService.addOnce(_name,_age);
+           
             // TODO: Handle form submission
             Navigator.of(context).pop();},
-          //},
-          child: Text('Save'),
+      
+          child: Text(AppLocalizations.of(context)!.save),
+          style: ElevatedButton.styleFrom(
+      primary: Color(0xFFF5CEB8),
+    ),
         ),
       ],
     );

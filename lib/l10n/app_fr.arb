@@ -1,4 +1,17 @@
   {
     "login": "Salut!",
-    "name": "nom"
+    "name": "Nom de l'enfant",
+    "wedLoveToHelpYouCreateSpecialSpaces":"Vous pouvez créer des espaces pour vos enfants où notre robot dessinera des images selon leur âge",
+    "imaginarium,":"Imaginarium",
+    "craeteSpace":"Créer Un Espace",
+    "age":"Age",
+    "chooseAnImage":"Choisir une image",
+    "save":"Enregistrer",
+    "cancel":"Annuler",
+    "doYouWantToDesignTheImage":"Voulez-vous dessigner l'image ?"
+
+
+
+
+ 
   }  
