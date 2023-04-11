@@ -1,5 +1,7 @@
 import 'package:artie/components/text_field_container.dart';
 import 'package:flutter/material.dart';
+
+import '../services/userApi.dart';
 export 'rounded_input_field.dart';
 
 class RoundedInputField extends StatelessWidget {
@@ -18,6 +20,10 @@ class RoundedInputField extends StatelessWidget {
       child: TextFormField(
         keyboardType: TextInputType.emailAddress,
         onSaved: (newValue) => getvalue = newValue,
+        onChanged: (String? value) {
+          UserApiServicee.email = value!;
+          // UserApiServicee.id = 'aaaaa';
+        },
         cursorColor: kPrimaryColor,
         decoration: InputDecoration(
             icon: Icon(

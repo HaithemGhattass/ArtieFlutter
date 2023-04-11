@@ -4,6 +4,7 @@ import 'package:artie/components/custom_outline.dart';
 import 'package:artie/components/rounded_input_field.dart';
 import 'package:artie/components/rounded_password_field.dart';
 import 'package:artie/constants.dart';
+import 'package:artie/services/ChildApi.dart';
 import 'package:artie/services/userApi.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -176,10 +177,16 @@ class _SignIn extends State<SignIn> {
                                   "Content-Type":
                                       "application/json; charset=UTF-8"
                                 };
-                                UserApiService.signInWithEmailAndPassword(
-                                    "haithem.ghattas@esprit.tn",
-                                    "test",
-                                    context);
+
+                                UserApiServicee.signInWithEmailAndPassword(
+                                        context)
+                                    .then((a) => {
+                                          print('aaa'),
+                                          ChildApiService.getChildsByUser()
+                                              .then((value) =>
+                                                  Navigator.pushNamed(
+                                                      context, "/home"))
+                                        });
                               }
                             }),
                         const SizedBox(

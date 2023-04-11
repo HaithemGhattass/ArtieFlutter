@@ -1,4 +1,5 @@
 import 'package:artie/screens/control.dart';
+import 'package:artie/screens/draw_screen.dart';
 import 'package:artie/screens/home_screen.dart';
 import 'package:artie/screens/onboarding_screen.dart';
 import 'package:artie/screens/signin_screen.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const HomeScreen(),
         '/signup': (context) => const SignUp(),
         '/control': (context) => ControlScreen(),
+        '/draw': (context) => const ColorGame()
       },
     );
   }

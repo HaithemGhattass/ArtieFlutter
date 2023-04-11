@@ -5,23 +5,36 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import '../helper/keyboard.dart';
 
-class UserApiService {
+class UserApiServicee {
   static User? _user;
+  static String? email;
+  static String? password;
+  static String? id;
+  static String? id2;
 
   // Se connecter avec email et mot de passe
-  static Future<String?> signInWithEmailAndPassword(
-      String email, String pwd, dynamic context) async {
+  static Future<String?> signInWithEmailAndPassword(dynamic context) async {
     final response = await http.post(
       Uri.parse(Constants.baseUrl + "/user"),
       headers: {'Content-Type': 'application/json'},
-      body: jsonEncode({'email': email, 'pwd': pwd}),
+      body: jsonEncode({'email': email, 'pwd': password}),
     );
+    print(email);
 
+    print(password);
     if (response.statusCode == 200) {
       KeyboardUtil.hideKeyboard(context);
-      Navigator.pushNamed(context, "/home");
       final Map<String, dynamic> responseData = json.decode(response.body);
       _user = User.fromJson(responseData['user']);
+      id = _user!.id;
+      id2 = _user!.id;
+
+      print('(------)');
+
+      print(_user!.id);
+      print(_user!.name);
+      print(_user!.pwd);
+      print('(------)');
     } else if (response.statusCode == 400) {
       showDialog(
           context: context,
@@ -48,9 +61,13 @@ class UserApiService {
 
   // Récupérer l'ID de l'utilisateur connecté
   static String? getCurrentUserId() {
+    print('dkhlt2');
     if (_user != null) {
+      print('dkhlt3');
+      print(_user!.id);
       return _user!.id;
     } else {
+      print('null');
       return null;
     }
   }

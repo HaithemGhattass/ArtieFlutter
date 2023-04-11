@@ -1,4 +1,5 @@
 import 'package:artie/components/text_field_container.dart';
+import 'package:artie/services/userApi.dart';
 import 'package:flutter/material.dart';
 
 class RoundedPasswordField extends StatelessWidget {
@@ -14,6 +15,7 @@ class RoundedPasswordField extends StatelessWidget {
         cursorColor: kPrimaryColor,
         keyboardType: TextInputType.emailAddress,
         onSaved: (newValue) => getvalue = newValue,
+        onChanged: (String? value) => {UserApiServicee.password = value!},
         decoration: const InputDecoration(
             icon: Icon(
               Icons.lock,

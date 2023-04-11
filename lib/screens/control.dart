@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:rxdart/rxdart.dart';
-
+import 'dart:async';
+import 'dart:io';
 import '../AppColors.dart';
 import '../constants.dart';
 
@@ -15,6 +16,124 @@ class ControlScreen extends StatefulWidget {
 }
 
 class _ControlScreen extends State<ControlScreen> {
+  late MotorController _motorController;
+  bool _isConnected = false;
+  @override
+  void initState() {
+    super.initState();
+    _motorController = MotorController();
+    willAcceptStream = BehaviorSubject<int>();
+    willAcceptStream.add(0);
+    super.initState();
+  }
+
+  Future<void> _connect() async {
+    try {
+      await _motorController.connect('172.20.10.2', 8003);
+      setState(() {
+        print('connecting');
+
+        _isConnected = true;
+      });
+    } on SocketException catch (e) {
+      print(e);
+      _showErrorDialog('Could not connect to server');
+    }
+  }
+
+  Future<void> _armUp() async {
+    try {
+      await _motorController.sendCommand('armup');
+    } on SocketException catch (e) {
+      print(e);
+      _showErrorDialog('Error sending command');
+    }
+  }
+
+  Future<void> _mouthOpen() async {
+    try {
+      await _motorController.sendCommand('mouthopen');
+    } on SocketException catch (e) {
+      print(e);
+      _showErrorDialog('Error sending command');
+    }
+  }
+
+  Future<void> _mouthClose() async {
+    try {
+      await _motorController.sendCommand('mouthclose');
+    } on SocketException catch (e) {
+      print(e);
+      _showErrorDialog('Error sending command');
+    }
+  }
+
+  Future<void> _armDown() async {
+    try {
+      await _motorController.sendCommand('armdown');
+    } on SocketException catch (e) {
+      print(e);
+      _showErrorDialog('Error sending command');
+    }
+  }
+
+  Future<void> _disconnect() async {
+    try {
+      _motorController.close();
+      setState(() {
+        _isConnected = false;
+      });
+    } on SocketException catch (e) {
+      print(e);
+      _showErrorDialog('Could not disconnect');
+    }
+  }
+
+  Future<void> _sendStartCommand() async {
+    try {
+      await _motorController.sendCommand('start');
+    } on SocketException catch (e) {
+      print(e);
+      _showErrorDialog('Error sending command');
+    }
+  }
+
+  Future<void> _sendBackCommand() async {
+    try {
+      await _motorController.sendCommand('back');
+    } on SocketException catch (e) {
+      print(e);
+      _showErrorDialog('Error sending command');
+    }
+  }
+
+  Future<void> _sendRightCommand() async {
+    try {
+      await _motorController.sendCommand('right');
+    } on SocketException catch (e) {
+      print(e);
+      _showErrorDialog('Error sending command');
+    }
+  }
+
+  Future<void> _sendLeftCommand() async {
+    try {
+      await _motorController.sendCommand('left');
+    } on SocketException catch (e) {
+      print(e);
+      _showErrorDialog('Error sending command');
+    }
+  }
+
+  Future<void> _sendStopCommand() async {
+    try {
+      await _motorController.sendCommand('stop');
+    } on SocketException catch (e) {
+      print(e);
+      _showErrorDialog('Error sending command');
+    }
+  }
+
   double _top = 0;
   double _left = 0;
   Offset _position = Offset.zero;
@@ -28,18 +147,31 @@ class _ControlScreen extends State<ControlScreen> {
   Color buttonBackground = AppColors.darkButtonBackground;
   Color iconButton = AppColors.darkIconButton;
 
-  @override
-  void initState() {
-    willAcceptStream = new BehaviorSubject<int>();
-    willAcceptStream.add(0);
-    super.initState();
+  void _showErrorDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Error'),
+          content: Text(message),
+          actions: [
+            ElevatedButton(
+              child: const Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   void _fuctionDrag(String msg) {
     final snackBar = SnackBar(
         content: Text('$msg'),
         behavior: SnackBarBehavior.floating,
-        duration: Duration(milliseconds: 500));
+        duration: const Duration(milliseconds: 500));
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
@@ -136,15 +268,132 @@ class _ControlScreen extends State<ControlScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: <Widget>[
+                        InkWell(
+                          onTap: () async {
+                            _isConnected == false
+                                ? await _connect()
+                                : await _disconnect();
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(2),
+                            width: size.height * 0.11,
+                            height: size.height * 0.11,
+                            decoration: BoxDecoration(
+                              color: buttonBackground,
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Icon(
+                              Icons.power_settings_new,
+                              color: Color(0xFFEF5252),
+                              size: 38,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: size.width,
+                          height: size.height * 0.25,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                              Container(
+                                width: size.width * 0.20,
+                                height: size.height * 0.25,
+                                decoration: BoxDecoration(
+                                  color: buttonBackground,
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(40.0),
+                                  ),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: <Widget>[
+                                    InkWell(
+                                      onTap: () async {
+                                        _mouthOpen();
+                                      },
+                                      child: Icon(
+                                        Icons.keyboard_arrow_up,
+                                        color: iconButton,
+                                        size: 38,
+                                      ),
+                                    ),
+                                    Text(
+                                      "",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: text,
+                                        fontSize: 24,
+                                      ),
+                                    ),
+                                    InkWell(
+                                      onTap: () async {
+                                        _mouthClose();
+                                      },
+                                      child: Icon(
+                                        Icons.keyboard_arrow_down,
+                                        color: iconButton,
+                                        size: 38,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                width: size.width * 0.20,
+                                height: size.height * 0.25,
+                                decoration: BoxDecoration(
+                                  color: buttonBackground,
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(40.0),
+                                  ),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: <Widget>[
+                                    InkWell(
+                                      onTap: () async {
+                                        _armUp();
+                                      },
+                                      child: Icon(
+                                        Icons.keyboard_arrow_up,
+                                        color: iconButton,
+                                        size: 38,
+                                      ),
+                                    ),
+                                    Text(
+                                      "",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: text,
+                                        fontSize: 24,
+                                      ),
+                                    ),
+                                    InkWell(
+                                        onTap: () async {
+                                          _armDown();
+                                        },
+                                        child: Icon(
+                                          Icons.keyboard_arrow_down,
+                                          color: iconButton,
+                                          size: 38,
+                                        )),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                         Container(
                           child: Row(children: [
                             DragTarget(
                               builder: (context, list, list2) {
                                 return Container(
-                                  padding: EdgeInsets.all(3),
+                                  padding: const EdgeInsets.all(3),
                                   width: size.width * 0.2,
                                   height: size.width * 0.3,
-                                  child: Icon(
+                                  child: const Icon(
                                     Icons.lens,
                                     color: Color(0xFFFF4B4D),
                                     size: 18,
@@ -153,12 +402,14 @@ class _ControlScreen extends State<ControlScreen> {
                               },
                               onWillAccept: (item) {
                                 debugPrint('top');
+                                _sendStartCommand();
                                 this.willAcceptStream.add(100);
                                 _fuctionDrag('top');
                                 return false;
                               },
                               onLeave: (item) {
                                 debugPrint('RESET');
+                                _sendStopCommand();
                                 this.willAcceptStream.add(0);
                               },
                             ),
@@ -173,10 +424,10 @@ class _ControlScreen extends State<ControlScreen> {
                               DragTarget(
                                 builder: (context, list, list2) {
                                   return Container(
-                                    padding: EdgeInsets.all(3),
+                                    padding: const EdgeInsets.all(3),
                                     width: size.width * 0.2,
                                     height: size.width * 0.5,
-                                    child: Icon(
+                                    child: const Icon(
                                       Icons.lens,
                                       color: Color(0xFFFF4B4D),
                                       size: 18,
@@ -185,17 +436,19 @@ class _ControlScreen extends State<ControlScreen> {
                                 },
                                 onWillAccept: (item) {
                                   debugPrint('left');
+                                  _sendLeftCommand();
                                   this.willAcceptStream.add(-50);
                                   _fuctionDrag('left');
                                   return false;
                                 },
                                 onLeave: (item) {
                                   debugPrint('RESET');
+                                  _sendStopCommand();
                                   this.willAcceptStream.add(0);
                                 },
                               ),
                               Container(
-                                padding: EdgeInsets.all(2.5),
+                                padding: const EdgeInsets.all(2.5),
                                 width: size.width * 0.5,
                                 height: size.width * 0.5,
                                 decoration: const BoxDecoration(
@@ -213,10 +466,10 @@ class _ControlScreen extends State<ControlScreen> {
                                   shape: BoxShape.circle,
                                 ),
                                 child: Container(
-                                  padding: EdgeInsets.all(18),
+                                  padding: const EdgeInsets.all(18),
                                   width: size.width * 0.4,
                                   height: size.width * 0.4,
-                                  decoration: new BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     color: Constants.kBlackColor,
                                     shape: BoxShape.circle,
                                   ),
@@ -261,10 +514,11 @@ class _ControlScreen extends State<ControlScreen> {
                                                 height: size.width * 0.4,
                                                 decoration: BoxDecoration(
                                                   color: (snapshot.data) != 0
-                                                      ? Color(0xFF59C533)
+                                                      ? const Color(0xFF59C533)
                                                       : (snapshot.data) == 0
                                                           ? buttonBackground
-                                                          : Color(0xFFFF4B4D),
+                                                          : const Color(
+                                                              0xFFFF4B4D),
                                                   shape: BoxShape.circle,
                                                 ),
                                               );
@@ -285,10 +539,10 @@ class _ControlScreen extends State<ControlScreen> {
                               DragTarget(
                                 builder: (context, list, list2) {
                                   return Container(
-                                    padding: EdgeInsets.all(3),
+                                    padding: const EdgeInsets.all(3),
                                     width: size.width * 0.2,
                                     height: size.width * 0.5,
-                                    child: Icon(
+                                    child: const Icon(
                                       Icons.lens,
                                       color: Color(0xFFFF4B4D),
                                       size: 18,
@@ -297,12 +551,14 @@ class _ControlScreen extends State<ControlScreen> {
                                 },
                                 onWillAccept: (item) {
                                   debugPrint('right');
+                                  _sendRightCommand();
                                   this.willAcceptStream.add(50);
                                   _fuctionDrag('right');
                                   return false;
                                 },
                                 onLeave: (item) {
                                   debugPrint('RESET');
+                                  _sendStopCommand();
                                   this.willAcceptStream.add(0);
                                 },
                               ),
@@ -314,10 +570,10 @@ class _ControlScreen extends State<ControlScreen> {
                             DragTarget(
                               builder: (context, list, list2) {
                                 return Container(
-                                  padding: EdgeInsets.all(3),
+                                  padding: const EdgeInsets.all(3),
                                   width: size.width * 0.2,
                                   height: size.width * 0.3,
-                                  child: Icon(
+                                  child: const Icon(
                                     Icons.lens,
                                     color: Color(0xFFFF4B4D),
                                     size: 18,
@@ -326,12 +582,14 @@ class _ControlScreen extends State<ControlScreen> {
                               },
                               onWillAccept: (item) {
                                 debugPrint('bottom');
+                                _sendBackCommand();
                                 this.willAcceptStream.add(-100);
                                 _fuctionDrag("buttom");
                                 return false;
                               },
                               onLeave: (item) {
                                 debugPrint('RESET');
+                                _sendStopCommand();
                                 this.willAcceptStream.add(0);
                               },
                             ),
@@ -347,5 +605,21 @@ class _ControlScreen extends State<ControlScreen> {
         ),
       ),
     );
+  }
+}
+
+class MotorController {
+  late Socket socket;
+
+  Future<void> connect(String host, int port) async {
+    socket = await Socket.connect(host, port);
+  }
+
+  Future<void> sendCommand(String command) async {
+    socket.write(command);
+  }
+
+  void close() {
+    socket.close();
   }
 }

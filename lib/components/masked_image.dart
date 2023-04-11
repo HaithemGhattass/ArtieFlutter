@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../services/Server_Url.dart';
+
 class MaskedImage extends StatelessWidget {
   final String? asset;
   final String? mask;
@@ -31,6 +33,7 @@ class MaskedImage extends StatelessWidget {
   Future<List> _createShaderAndImage(
       String asset, String mask, double w, double h) async {
     ByteData data = await rootBundle.load(asset);
+
     ByteData maskData = await rootBundle.load(mask);
 
     Codec codec = await instantiateImageCodec(

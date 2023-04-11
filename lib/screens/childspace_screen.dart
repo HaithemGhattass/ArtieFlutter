@@ -8,38 +8,15 @@ import 'package:artie/components/search_field_widget.dart';
 import 'package:artie/models/movie.dart';
 
 import '../constants.dart';
-import '../models/child.dart';
-import '../services/ChildApi.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class ChildSpaceScreen extends StatefulWidget {
+  const ChildSpaceScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<ChildSpaceScreen> createState() => _ChildSpaceScreen();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  List<Child> _childs = [];
-
-  @override
-  void initState() {
-    super.initState();
-    //_loadChilds();
-  }
-
-  void _loadChilds() async {
-    print('DKHAAALT');
-    final List<Child> childs = await ChildApiService.getChildsByUser();
-    print(childs);
-    setState(() {
-      _childs = childs;
-    });
-  }
-
-  void updateChilds() {
-    _loadChilds();
-  }
-
+class _ChildSpaceScreen extends State<ChildSpaceScreen> {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -154,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: EdgeInsets.only(left: 20.0),
                       child: Row(
                         children: [
-                          Text(
+                          const Text(
                             'Simple Shapes',
                             style: TextStyle(
                               color: Constants.kWhiteColor,
@@ -164,45 +141,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           SizedBox(
                             width: MediaQuery.of(context).size.width - 250,
                             height: 10,
-                          ),
-                          Container(
-                            height: 64,
-                            width: 64,
-                            padding: const EdgeInsets.all(4),
-                            margin: const EdgeInsets.only(top: 40),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              gradient: LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                                colors: [
-                                  Constants.kPinkColor.withOpacity(0.2),
-                                  Constants.kGreenColor.withOpacity(0.2)
-                                ],
-                              ),
-                            ),
-                            child: Container(
-                              height: 60,
-                              width: 60,
-                              padding: const EdgeInsets.all(4),
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                gradient: LinearGradient(
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                  colors: [
-                                    Constants.kPinkColor,
-                                    Constants.kGreenColor,
-                                  ],
-                                ),
-                              ),
-                              child: RawMaterialButton(
-                                onPressed: () {},
-                                shape: const CircleBorder(),
-                                fillColor: const Color(0xff404c57),
-                                child: SvgPicture.asset(Constants.kIconPlus),
-                              ),
-                            ),
                           ),
                         ],
                       )),
@@ -226,22 +164,16 @@ class _HomeScreenState extends State<HomeScreen> {
                         }
                         return GestureDetector(
                           child: Container(
-                              margin: EdgeInsets.only(
-                                left: index == 0 ? 20 : 0,
-                              ),
-                              height: 160,
-                              width: 142,
-                              child: _childs
-                                  .map((child) {
-                                    print(child.image);
-                                    print('child image here');
-                                    return MaskedImage(
-                                      asset: child.image,
-                                      mask: mask,
-                                    );
-                                  })
-                                  .toList()
-                                  .first),
+                            margin: EdgeInsets.only(
+                              left: index == 0 ? 20 : 0,
+                            ),
+                            height: 160,
+                            width: 142,
+                            child: MaskedImage(
+                              asset: newMovies[index].moviePoster,
+                              mask: mask,
+                            ),
+                          ),
                         );
                       },
                     ),
