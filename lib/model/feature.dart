@@ -1,37 +1,42 @@
 import 'package:flutter/material.dart';
 
 class Feature {
-  Feature({
-    required this.featureTitle,
-    required this.featureSubtitle,
-    required this.background,
-    required this.illustration,
-    required this.logo,
-  });
-
+  Feature(
+      {required this.featureTitle,
+      required this.featureSubtitle,
+      required this.background,
+      required this.illustration,
+      required this.logo,
+      required this.intro,
+      required this.view});
+  String intro;
   String featureTitle;
   String featureSubtitle;
   LinearGradient background;
   String illustration;
   String logo;
+  Widget view;
 }
 
 // Recent features
 var recentfeatures = [
   Feature(
-    featureTitle: "Learn to color and draw",
-    featureSubtitle: "Learning",
-    background: LinearGradient(
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-      colors: [
-        Color(0xFF00AEFF),
-        Color(0xFF0076FF),
-      ],
-    ),
-    illustration: 'illustration-01.png',
-    logo: 'flutter-logo.png',
-  ),
+      featureTitle: "Learn to color and draw",
+      featureSubtitle: "Learning",
+      background: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [
+          Color(0xFF00AEFF),
+          Color(0xFF0076FF),
+        ],
+      ),
+      illustration: 'illustration-01.png',
+      logo: 'flutter-logo.png',
+      intro: 'badel lena 1',
+      view: Container(
+        child: Text('loula'),
+      )),
   Feature(
     featureTitle: "Remote control Artie",
     featureSubtitle: "Remote",
@@ -45,6 +50,8 @@ var recentfeatures = [
     ),
     illustration: 'illustration-02.png',
     logo: 'protopie-logo.png',
+    intro: 'badel lena 2',
+    view: Container(child: Text('thenia')),
   ),
   Feature(
     featureTitle: "Let Artie play around",
@@ -59,6 +66,8 @@ var recentfeatures = [
     ),
     illustration: 'illustration-03.png',
     logo: 'swift-logo.png',
+    intro: 'badel lena 3',
+    view: Container(child: Text('theltha')),
   ),
 ];
 
@@ -77,20 +86,25 @@ var explorefeatures = [
     ),
     illustration: 'illustration-04.png',
     logo: 'flutter-logo.png',
+    intro: '',
+    view: Container(),
   ),
   Feature(
-      featureTitle: "Build an app with SwiftUI",
-      featureSubtitle: "22 sections",
-      background: LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        colors: [
-          Color(0xFFA931E5),
-          Color(0xFF4B02FE),
-        ],
-      ),
-      illustration: 'illustration-05.png',
-      logo: 'flutter-logo.png'),
+    featureTitle: "Build an app with SwiftUI",
+    featureSubtitle: "22 sections",
+    background: LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: [
+        Color(0xFFA931E5),
+        Color(0xFF4B02FE),
+      ],
+    ),
+    illustration: 'illustration-05.png',
+    logo: 'flutter-logo.png',
+    intro: '',
+    view: Container(),
+  ),
 ];
 
 // Continue Watching features
@@ -108,6 +122,8 @@ var continueWatchingfeatures = [
     ),
     illustration: 'illustration-06.png',
     logo: 'flutter-logo.png',
+    intro: '',
+    view: Container(),
   ),
   Feature(
     featureTitle: "Animating in Principle",
@@ -122,6 +138,8 @@ var continueWatchingfeatures = [
     ),
     illustration: 'illustration-07.png',
     logo: 'flutter-logo.png',
+    intro: '',
+    view: Container(),
   ),
 ];
 
@@ -140,6 +158,8 @@ var featureSections = [
     ),
     illustration: 'illustration-01.png',
     logo: 'flutter-logo.png',
+    intro: '',
+    view: Container(),
   ),
   Feature(
     featureTitle: "Learn to color and draw",
@@ -154,6 +174,8 @@ var featureSections = [
     ),
     illustration: 'illustration-08.png',
     logo: 'flutter-logo.png',
+    intro: '',
+    view: Container(),
   ),
   Feature(
     featureTitle: "ProtoPie Prototyping",
@@ -168,6 +190,8 @@ var featureSections = [
     ),
     illustration: 'illustration-09.png',
     logo: '',
+    intro: '',
+    view: Container(),
   ),
   Feature(
     featureTitle: "UI Design feature",
@@ -182,6 +206,8 @@ var featureSections = [
     ),
     illustration: 'illustration-10.png',
     logo: 'flutter-logo.png',
+    intro: '',
+    view: Container(),
   ),
   Feature(
     featureTitle: "React for Designers",
@@ -196,6 +222,8 @@ var featureSections = [
     ),
     illustration: 'illustration-11.png',
     logo: 'flutter-logo.png',
+    intro: '',
+    view: Container(),
   ),
 ];
 
@@ -214,6 +242,8 @@ var completedfeatures = [
     ),
     illustration: 'illustration-12.png',
     logo: 'flutter-logo.png',
+    intro: '',
+    view: Container(),
   ),
   Feature(
     featureTitle: "Swift Advanced",
@@ -228,5 +258,7 @@ var completedfeatures = [
     ),
     illustration: 'illustration-13.png',
     logo: 'flutter-logo.png',
+    intro: '',
+    view: Container(),
   ),
 ];
