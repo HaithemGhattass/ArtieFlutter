@@ -45,7 +45,7 @@ _user= User.fromJson(responseData['user']);
    // Récupérer l'ID de l'utilisateur connecté
  static String? getCurrentUserId() {
     if (_user != null) {
-      return _user!.id;
+      return _user!.id; 
     } else {
       return null;
     }
