@@ -1,3 +1,5 @@
+import 'package:artie/screens/control.dart';
+import 'package:artie/screens/draw_screen.dart';
 import 'package:flutter/material.dart';
 
 class Feature {
@@ -35,7 +37,7 @@ var recentfeatures = [
       logo: 'flutter-logo.png',
       intro: 'badel lena 1',
       view: Container(
-        child: Text('loula'),
+        child: ColorGame()
       )),
   Feature(
     featureTitle: "Remote control Artie",
@@ -51,7 +53,7 @@ var recentfeatures = [
     illustration: 'illustration-02.png',
     logo: 'protopie-logo.png',
     intro: 'badel lena 2',
-    view: Container(child: Text('thenia')),
+    view: Container(child: ControlScreen()),
   ),
   Feature(
     featureTitle: "Let Artie play around",

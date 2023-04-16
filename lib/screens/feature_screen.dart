@@ -334,7 +334,7 @@ class _FeatureScreenState extends State<FeatureScreen> {
                           width: 80.0,
                           height: 40.0,
                           child: Text(
-                            "View all",
+                            "Play",
                             style: kSearchTextStyle,
                           ),
                         ),

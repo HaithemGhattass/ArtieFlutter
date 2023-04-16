@@ -39,6 +39,8 @@ dependencies:
   sliding_up_panel: ^2.0.0+1
   http: ^0.13.5
   shared_preferences: ^2.1.0
+  rxdart: ^0.27.7
+  flutter_svg: ^2.0.5
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +72,7 @@ flutter:
     - asset/illustrations/
     - asset/images/  
     - asset/logos/ 
+    - asset/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

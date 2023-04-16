@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:artie/models/user.dart';
 import 'package:artie/constants.dart';
 import 'package:artie/screens/home_screen.dart';
+import 'package:artie/screens/signin_screen.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,6 +10,7 @@ import '../helper/keyboard.dart';
 
 class UserApiServicee {
   static User? _user;
+  static String? name;
   static String? email;
   static String? password;
   static String? id;
@@ -46,6 +48,34 @@ class UserApiServicee {
         context,
         MaterialPageRoute(
             builder: (context) => HomeScreen(), fullscreenDialog: true),
+      );
+    } else if (response.statusCode == 400) {
+      showDialog(
+          context: context,
+          builder: (builder) {
+            return const AlertDialog(
+                title: Text("Erreur"),
+                content: Text("Mot de passe ou email invalides"));
+          });
+    }
+  }
+  static Future<String?> signUp(dynamic context) async {
+    final response = await http.post(
+      Uri.parse(Constants.baseUrl + "/user/add"),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({'name': name, 'email': email, 'pwd': password}),
+    );
+    print(email);
+
+    print(password);
+    if (response.statusCode == 200) {
+      KeyboardUtil.hideKeyboard(context);
+      final Map<String, dynamic> responseData = json.decode(response.body);
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => SignIn(), fullscreenDialog: true),
       );
     } else if (response.statusCode == 400) {
       showDialog(

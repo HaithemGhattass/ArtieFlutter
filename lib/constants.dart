@@ -10,6 +10,7 @@ const kSecondaryLabelColor = Color(0xFF797F8A);
 const kShadowColor = Color.fromRGBO(72, 76, 82, 0.16);
 const kCourseElementIconColor = Color(0xFF17294D);
 
+
 // Text Styles
 var kLargeTitleStyle = TextStyle(
   fontSize: 28.0,
@@ -125,5 +126,5 @@ class Constants {
   static const String kMaskCast = 'assets/mask/mask_cast.png';
 
   // Constant Server
-  static const String baseUrl = 'http://localhost:9090';
+  static const String baseUrl = 'http://192.168.1.6:9090';
 }
