@@ -1,9 +1,11 @@
 import 'package:artie/components/home_screen_navbar.dart';
 import 'package:artie/components/list/recent_feature_list.dart';
 import 'package:artie/constants.dart';
+import 'package:artie/models/image.dart';
 import 'package:flutter/material.dart';
 
 import '../components/list/Gcode_draws_list.dart';
+import '../service/childapi_service.dart';
 import 'howToUse_screen.dart';
 import 'sidebar_screen.dart';
 
@@ -22,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   void initState() {
     // TODO: implement initState
     super.initState();
+
     sidebarAnimationController =
         AnimationController(vsync: this, duration: Duration(microseconds: 250));
     sidebarAnimation = Tween<Offset>(begin: Offset(-1, 0), end: Offset(0, 0))

@@ -1,11 +1,14 @@
 import 'package:artie/Constants.dart';
 import 'package:artie/model/feature.dart';
+import 'package:artie/models/image.dart';
 import 'package:flutter/material.dart';
 
 class GcodeDrawsCard extends StatelessWidget {
-  const GcodeDrawsCard({super.key, required this.feature});
+  const GcodeDrawsCard(
+      {super.key, required this.feature, required this.gradient});
 
-  final Feature feature;
+  final Draw feature;
+  final Gradient gradient;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +19,7 @@ class GcodeDrawsCard extends StatelessWidget {
         child: Container(
           height: 120.0,
           width: 280.0,
-          decoration: BoxDecoration(gradient: feature.background),
+          decoration: BoxDecoration(gradient: gradient),
           child: Padding(
             padding: EdgeInsets.only(left: 32.0),
             child: Row(
@@ -26,13 +29,9 @@ class GcodeDrawsCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        feature.featureSubtitle,
-                        style: kCardSubtitleStyle,
-                      ),
                       SizedBox(height: 6.0),
                       Text(
-                        feature.featureTitle,
+                        'Future pictures to draw',
                         style: kCardTitleStyle,
                       )
                     ],
@@ -41,8 +40,8 @@ class GcodeDrawsCard extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Image.asset(
-                      'asset/illustrations/${feature.illustration}',
+                    Image.network(
+                      'http://localhost:9090/img/${feature.image}',
                       fit: BoxFit.cover,
                       height: 100,
                     )
