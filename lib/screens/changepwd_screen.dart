@@ -5,7 +5,7 @@ import 'package:artie/components/costum/rounded_button.dart';
 import 'package:artie/components/costum/rounded_input_field.dart';
 import 'package:artie/components/costum/rounded_password_field.dart';
 import 'package:artie/constants.dart';
-import 'package:artie/screens/forgetpwd_screen.dart';
+import 'package:artie/screens/signin_screen.dart';
 import 'package:artie/screens/signup_screen.dart';
 import 'package:artie/service/userapi_service.dart';
 
@@ -13,15 +13,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class SignIn extends StatefulWidget {
+import '../components/costum/rounded_input_field2.dart';
+
+class Changepw extends StatefulWidget {
+  final String email;
+  Changepw({required this.email});
   @override
-  _SignIn createState() => _SignIn();
+  _Changepw createState() => _Changepw();
 }
 
-class _SignIn extends State<SignIn> {
+class _Changepw extends State<Changepw> {
+    final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  late Future<String> _email;
+  Future<String> _getname() async {
+    final SharedPreferences prefs = await _prefs;
+    final String email = (prefs.getString('email') ?? '');
+
+    return email;
+  }
+
   final _formKey = GlobalKey<FormState>();
-  String? email;
+  String? name;
+  
   String? pwd;
   bool? remember = false;
   final List<String?> errors = [];
@@ -40,6 +55,15 @@ class _SignIn extends State<SignIn> {
         errors.remove(error);
       });
     }
+  }
+   @override
+  void initState() {
+    // TODO: implement initState
+
+    super.initState();
+    _email = _prefs.then((SharedPreferences prefs) {
+      return prefs.getString('email') ?? '';
+    });
   }
 
   @override
@@ -141,101 +165,44 @@ class _SignIn extends State<SignIn> {
                     key: _formKey,
                     child: Column(
                       children: [
-                        const RoundedInputField(
-                            hintText: "Email", icon: Icons.email),
+                        
                         const RoundedPasswordField(),
-                        Padding(
+                        
+                 
+               Padding(
                           padding: const EdgeInsets.only(left: 50, right: 40),
-                          child: SwitchListTile(
-                            dense: true,
-                            title: const Text(
-                              'Remember Me',
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontFamily: 'OpenSans',
-                                  color: Constants.kGreyColor),
-                            ),
-                            value: remember!,
-                            activeColor: Constants.kGreenColor,
-                            onChanged: (value) {
-                              setState(() {
-                                remember = value;
-                              });
-                            },
-                          ),
-                        ),
-                        RoundedButton(
-                            text: 'LOGIN',
-                            press: () {
-                              if (_formKey.currentState!.validate()) {
-                                _formKey.currentState!.save();
-                                Map<String, dynamic> userData = {
-                                  "email": email,
-                                  "pwd": pwd
-                                };
-                                Map<String, String> headers = {
-                                  "Content-Type":
-                                      "application/json; charset=UTF-8"
-                                };
+                          child: RoundedButton(
+                              text: 'Change',
+                              press: () {
+                                if (_formKey.currentState!.validate()) {
+                                  _formKey.currentState!.save();
+                                  Map<String, dynamic> userData = {
+                                    
+                                    "email": widget.email,
+                                    "pwd": pwd
+                                    
+                                  };
+                                  Map<String, String> headers = {
+                                    "Content-Type":
+                                        "application/json; charset=UTF-8"
+                                  };
 
-                                UserApiServicee.signInWithEmailAndPassword(
-                                    context);
-                                /*  .then((a) => {
-                                          print('aaa'),
-                                          ChildApiService.getChildsByUser()
-                                              .then((value) =>
-                                                  Navigator.pushNamed(
-                                                      context, "/home"))
-                                        }); */
-                              }
-                            }),
+                                  UserApiServicee.changepw(
+                                      context);
+                                  /*  .then((a) => {
+                                            print('aaa'),
+                                            ChildApiService.getChildsByUser()
+                                                .then((value) =>
+                                                    Navigator.pushNamed(
+                                                        context, "/home"))
+                                          }); */
+                                }
+                              }),
+                        ),
                         const SizedBox(
                           height: 10,
                         ),
-                        
                       
-                       GestureDetector(
-                        onTap: () {
-             Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => Forget(), fullscreenDialog: true),
-      );
-                                
-                          
-                              },
-                          child: const Text(
-                            'Forgot password?',
-                            style: TextStyle(
-                                color: Constants.kGreenColor,
-                                fontFamily: 'OpenSans',
-                                fontWeight: FontWeight.w600,
-                                fontSize: 13),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 4.0,
-                        ),
-                            GestureDetector(
-                              onTap: () {
-             Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => SignUp(), fullscreenDialog: true),
-      );
-                                
-                          
-                              }
-                              ,
-                              child: const Text(
-                                                      'Dont have an account ? Sign up',
-                                                      style: TextStyle(
-                                color: Constants.kGreenColor,
-                                fontFamily: 'OpenSans',
-                                fontWeight: FontWeight.w600,
-                                fontSize: 13),
-                                                    ),
-                            ),
                       ],
                     ),
                   ),

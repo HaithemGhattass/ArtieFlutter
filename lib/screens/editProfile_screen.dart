@@ -1,3 +1,4 @@
+import 'dart:ffi';
 import 'dart:ui';
 
 import 'package:artie/components/costum/costum_outline.dart';
@@ -5,7 +6,7 @@ import 'package:artie/components/costum/rounded_button.dart';
 import 'package:artie/components/costum/rounded_input_field.dart';
 import 'package:artie/components/costum/rounded_password_field.dart';
 import 'package:artie/constants.dart';
-import 'package:artie/screens/forgetpwd_screen.dart';
+import 'package:artie/screens/signin_screen.dart';
 import 'package:artie/screens/signup_screen.dart';
 import 'package:artie/service/userapi_service.dart';
 
@@ -13,14 +14,41 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class SignIn extends StatefulWidget {
+import '../components/costum/rounded_input_field2.dart';
+
+class EditProfile extends StatefulWidget {
   @override
-  _SignIn createState() => _SignIn();
+  _EditProfile createState() => _EditProfile();
 }
 
-class _SignIn extends State<SignIn> {
+class _EditProfile extends State<EditProfile> {
+   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  String name1 = '';
+  String email1 = '';
+  Future<void> getName() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+     String? savedName = prefs.getString('name');
+         if (savedName != null) {
+      setState(() {
+        name1 = savedName;
+      });
+    }
+
+  }
+   Future<void> getEmail() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+     String? savedEmail = prefs.getString('email');
+         if (savedEmail != null) {
+      setState(() {
+        email1 = savedEmail;
+      });
+    }
+
+  }
   final _formKey = GlobalKey<FormState>();
+  String? name;
   String? email;
   String? pwd;
   bool? remember = false;
@@ -40,6 +68,14 @@ class _SignIn extends State<SignIn> {
         errors.remove(error);
       });
     }
+  }
+   @override
+  void initState() {
+    // TODO: implement initState
+
+    super.initState();
+    getEmail();
+    getName();
   }
 
   @override
@@ -137,105 +173,51 @@ class _SignIn extends State<SignIn> {
                   SizedBox(
                     height: screenHeight * 0.05,
                   ),
+                  
                   Form(
                     key: _formKey,
                     child: Column(
                       children: [
-                        const RoundedInputField(
-                            hintText: "Email", icon: Icons.email),
-                        const RoundedPasswordField(),
-                        Padding(
+                         RoundedInputField2(
+                          hintText: name1, icon: Icons.person),
+                         RoundedInputField(
+                            hintText: email1, icon: Icons.email),
+                        
+                 
+               Padding(
                           padding: const EdgeInsets.only(left: 50, right: 40),
-                          child: SwitchListTile(
-                            dense: true,
-                            title: const Text(
-                              'Remember Me',
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontFamily: 'OpenSans',
-                                  color: Constants.kGreyColor),
-                            ),
-                            value: remember!,
-                            activeColor: Constants.kGreenColor,
-                            onChanged: (value) {
-                              setState(() {
-                                remember = value;
-                              });
-                            },
-                          ),
-                        ),
-                        RoundedButton(
-                            text: 'LOGIN',
-                            press: () {
-                              if (_formKey.currentState!.validate()) {
-                                _formKey.currentState!.save();
-                                Map<String, dynamic> userData = {
-                                  "email": email,
-                                  "pwd": pwd
-                                };
-                                Map<String, String> headers = {
-                                  "Content-Type":
-                                      "application/json; charset=UTF-8"
-                                };
+                          child: RoundedButton(
+                              text: 'UPDATE',
+                              press: () {
+                                if (_formKey.currentState!.validate()) {
+                                  _formKey.currentState!.save();
+                                  Map<String, dynamic> userData = {
+                                    "name": name,
+                                    "email": email,
+                                    
+                                  };
+                                  Map<String, String> headers = {
+                                    "Content-Type":
+                                        "application/json; charset=UTF-8"
+                                  };
 
-                                UserApiServicee.signInWithEmailAndPassword(
-                                    context);
-                                /*  .then((a) => {
-                                          print('aaa'),
-                                          ChildApiService.getChildsByUser()
-                                              .then((value) =>
-                                                  Navigator.pushNamed(
-                                                      context, "/home"))
-                                        }); */
-                              }
-                            }),
+                                  UserApiServicee.Update(email1,
+                                      context);
+                                  /*  .then((a) => {
+                                            print('aaa'),
+                                            ChildApiService.getChildsByUser()
+                                                .then((value) =>
+                                                    Navigator.pushNamed(
+                                                        context, "/home"))
+                                          }); */
+                                }
+                              }),
+                        ),
                         const SizedBox(
                           height: 10,
                         ),
-                        
                       
-                       GestureDetector(
-                        onTap: () {
-             Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => Forget(), fullscreenDialog: true),
-      );
-                                
-                          
-                              },
-                          child: const Text(
-                            'Forgot password?',
-                            style: TextStyle(
-                                color: Constants.kGreenColor,
-                                fontFamily: 'OpenSans',
-                                fontWeight: FontWeight.w600,
-                                fontSize: 13),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 4.0,
-                        ),
-                            GestureDetector(
-                              onTap: () {
-             Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => SignUp(), fullscreenDialog: true),
-      );
-                                
-                          
-                              }
-                              ,
-                              child: const Text(
-                                                      'Dont have an account ? Sign up',
-                                                      style: TextStyle(
-                                color: Constants.kGreenColor,
-                                fontFamily: 'OpenSans',
-                                fontWeight: FontWeight.w600,
-                                fontSize: 13),
-                                                    ),
-                            ),
+              
                       ],
                     ),
                   ),

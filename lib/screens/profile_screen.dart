@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:artie/constants.dart';
 import 'package:artie/models/child.dart';
+import 'package:artie/screens/editProfile_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -94,24 +95,35 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             "Profile",
                             style: kCalloutLabelStyle,
                           ),
-                          Container(
-                            width: 40.0,
-                            height: 40.0,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(14.0),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: kShadowColor,
-                                    offset: Offset(0, 12),
-                                    blurRadius: 32.0,
-                                  )
-                                ]),
-                            child: Icon(
-                              Platform.isAndroid
-                                  ? Icons.settings
-                                  : CupertinoIcons.settings_solid,
-                              color: kSecondaryLabelColor,
+                          GestureDetector(
+                             onTap: () {
+             Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => EditProfile(), fullscreenDialog: true),
+      );
+                                
+                          
+                              },
+                            child: Container(
+                              width: 40.0,
+                              height: 40.0,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(14.0),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: kShadowColor,
+                                      offset: Offset(0, 12),
+                                      blurRadius: 32.0,
+                                    )
+                                  ]),
+                              child: Icon(
+                                Platform.isAndroid
+                                    ? Icons.settings
+                                    : CupertinoIcons.settings_solid,
+                                color: kSecondaryLabelColor,
+                              ),
                             ),
                           )
                         ],
