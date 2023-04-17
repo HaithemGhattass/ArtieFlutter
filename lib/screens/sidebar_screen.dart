@@ -97,14 +97,15 @@ class _SideBarScreenState extends State<SideBarScreen> {
               SideBarRow(
                 item: sidebarItem[0],
               ),
-              const SizedBox(height: 32.0),
-              SideBarRow(
+              //  const SizedBox(height: 32.0),
+              /* SideBarRow(
                 item: sidebarItem[1],
               ),
               const SizedBox(height: 32.0),
               SideBarRow(
                 item: sidebarItem[2],
               ),
+              */
               const SizedBox(height: 32.0),
               const Spacer(),
               GestureDetector(

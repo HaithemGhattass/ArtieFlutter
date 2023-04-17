@@ -4,8 +4,10 @@ import 'package:artie/constants.dart';
 import 'package:artie/models/child.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../service/childapi_service.dart';
+import 'addchild_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -13,11 +15,37 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  late Future<String> _name;
+  late Future<String> _email;
+  late String random;
+
+  Future<String> _getname() async {
+    final SharedPreferences prefs = await _prefs;
+    final String name = (prefs.getString('name') ?? '');
+
+    return name;
+  }
+
+  Future<String> _getemail() async {
+    final SharedPreferences prefs = await _prefs;
+    final String name = (prefs.getString('email') ?? '');
+
+    return name;
+  }
+
   List<Child> _childs = [];
   @override
   void initState() {
     super.initState();
     _loadChilds();
+    _name = _prefs.then((SharedPreferences prefs) {
+      return prefs.getString('name') ?? '';
+    });
+    _email = _prefs.then((SharedPreferences prefs) {
+      return prefs.getString('email') ?? '';
+    });
+    random = '';
   }
 
   void updateChilds() {
@@ -154,14 +182,38 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                "Sai Kambampati",
-                                style: kTitle2Style,
+                              FutureBuilder(
+                                future: _name,
+                                builder: (context, snapshot) {
+                                  switch (snapshot.connectionState) {
+                                    case ConnectionState.none:
+                                    case ConnectionState.waiting:
+                                      return const CircularProgressIndicator();
+                                    case ConnectionState.active:
+                                    case ConnectionState.done:
+                                      return Text(
+                                        '${snapshot.data}',
+                                        style: kTitle2Style,
+                                      );
+                                  }
+                                },
                               ),
                               SizedBox(height: 8.0),
-                              Text(
-                                "Flutter Developer",
-                                style: kSecondaryCalloutLabelStyle,
+                              FutureBuilder(
+                                future: _email,
+                                builder: (context, snapshot) {
+                                  switch (snapshot.connectionState) {
+                                    case ConnectionState.none:
+                                    case ConnectionState.waiting:
+                                      return const CircularProgressIndicator();
+                                    case ConnectionState.active:
+                                    case ConnectionState.done:
+                                      return Text(
+                                        '${snapshot.data}',
+                                        style: kSecondaryCalloutLabelStyle,
+                                      );
+                                  }
+                                },
                               ),
                             ],
                           ),
@@ -181,17 +233,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   "Children",
                                   style: kHeadlineLabelStyle,
                                 ),
-                                Row(
-                                  children: [
-                                    Text(
-                                      "add child",
-                                      style: kSearchPlaceholderStyle,
-                                    ),
-                                    Icon(
-                                      Icons.add,
-                                      color: kSecondaryLabelColor,
-                                    ),
-                                  ],
+                                GestureDetector(
+                                  onTap: () {
+                                    showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) {
+                                          return AddChild();
+                                        });
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "add child",
+                                        style: kSearchPlaceholderStyle,
+                                      ),
+                                      Icon(
+                                        Icons.add,
+                                        color: kSecondaryLabelColor,
+                                      ),
+                                    ],
+                                  ),
                                 )
                               ],
                             ),
@@ -209,23 +270,31 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         scrollDirection: Axis.horizontal,
                         itemCount: _childs.length,
                         itemBuilder: (context, index) {
-                          return Container(
-                            padding: EdgeInsets.only(
-                                left: 20.0, right: index != 3 ? 0.0 : 20.0),
-                            decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: kShadowColor.withOpacity(0.1),
-                                  offset: Offset(0, 12),
-                                  blurRadius: 18.0,
-                                ),
-                              ],
-                            ),
-                            child: Image.network(
-                              _childs[index].image,
-                              fit: BoxFit.cover,
-                              width: 100.0,
-                              height: 100.0,
+                          return GestureDetector(
+                            onTap: () {
+                              print(_childs[index].age);
+                              setState(() {
+                                random = _childs[index].name;
+                              });
+                            },
+                            child: Container(
+                              padding: EdgeInsets.only(
+                                  left: 20.0, right: index != 3 ? 0.0 : 20.0),
+                              decoration: BoxDecoration(
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: kShadowColor.withOpacity(0.1),
+                                    offset: Offset(0, 12),
+                                    blurRadius: 18.0,
+                                  ),
+                                ],
+                              ),
+                              child: Image.network(
+                                _childs[index].image,
+                                fit: BoxFit.cover,
+                                width: 100.0,
+                                height: 100.0,
+                              ),
                             ),
                           );
                         },
@@ -242,59 +311,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 right: 20.0,
                 bottom: 12.0,
               ),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Certificates",
-                        style: kHeadlineLabelStyle,
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            "See all",
-                            style: kSearchPlaceholderStyle,
-                          ),
-                          Icon(Icons.chevron_right,
-                              color: kSecondaryLabelColor),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
-              ),
             ),
-            Container(),
+            Container(child: Text(random)),
             Padding(
               padding: EdgeInsets.only(
                 left: 20.0,
                 right: 20.0,
                 bottom: 12.0,
-              ),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Completed Courses",
-                        style: kHeadlineLabelStyle,
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            "See all",
-                            style: kSearchPlaceholderStyle,
-                          ),
-                          Icon(Icons.chevron_right,
-                              color: kSecondaryLabelColor),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
               ),
             ),
             Container(),

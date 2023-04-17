@@ -24,10 +24,11 @@ class _ControlScreen extends State<ControlScreen> {
     _motorController = MotorController();
     willAcceptStream = BehaviorSubject<int>();
     willAcceptStream.add(0);
-    super.initState();
+    _connect();
   }
 
   Future<void> _connect() async {
+    print('conneeeeectiing 1');
     try {
       await _motorController.connect('172.20.10.2', 8003);
       setState(() {
@@ -38,6 +39,7 @@ class _ControlScreen extends State<ControlScreen> {
     } on SocketException catch (e) {
       print(e);
       _showErrorDialog('Could not connect to server');
+      print('could not connect');
     }
   }
 

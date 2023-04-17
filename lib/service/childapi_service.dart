@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:artie/constants.dart';
 import 'package:artie/models/child.dart';
+import 'package:artie/models/image.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'userapi_service.dart';
@@ -52,6 +53,32 @@ class ChildApiService {
               ))
           .toList();
     } catch (e) {
+      print(
+          "Une erreur s'est produite lors de la récupération des informations relatives aux enfants.");
+      // Afficher un message d'erreur à l'utilisateur en cas d'erreur
+
+      return [];
+    }
+  }
+
+  // Other API methods...
+  static Future<List<Draw>> getimages() async {
+    print("dkhalet");
+    try {
+      final response =
+          await http.get(Uri.parse(Constants.baseUrl + "/image/flutter/"));
+      final json = jsonDecode(response.body);
+      print(json);
+      return json
+          .map<Draw>((productJson) => Draw(
+                id: productJson['_id'],
+                image: productJson['image'],
+                childAge: productJson['childAge'],
+                //user: productJson['user']
+              ))
+          .toList();
+    } catch (e) {
+      print(e);
       print(
           "Une erreur s'est produite lors de la récupération des informations relatives aux enfants.");
       // Afficher un message d'erreur à l'utilisateur en cas d'erreur
