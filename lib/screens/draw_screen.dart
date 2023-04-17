@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -107,12 +108,9 @@ class _ColorGameState extends State<ColorGame> {
   int seed = 0;
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('steps ${score.length} / 2'),
-        backgroundColor: Constants.kBlackColor,
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Constants.kBlackColor,
+      floatingActionButton: FloatingActionButton.small(
+        child: const Icon(Icons.refresh),
+        backgroundColor: Color(0xff6750a4),
         onPressed: () {
           setState(() {
             score.clear();
@@ -121,50 +119,129 @@ class _ColorGameState extends State<ColorGame> {
           });
         },
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          ElevatedButton(
-            onPressed: () async {
-              _isConnected == false ? await _connect() : await _disconnect();
-            },
-            child: Text("Start"),
+      body: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Stack(children: [
+          Positioned(
+            top: -100,
+            left: -100,
+            child: Container(
+              height: 200,
+              width: 200,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Constants.kGreenColor.withOpacity(0.5),
+              ),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(
+                  sigmaX: 200,
+                  sigmaY: 200,
+                ),
+                child: Container(
+                  height: 200,
+                  width: 200,
+                  color: Colors.transparent,
+                ),
+              ),
+            ),
           ),
-          const Text('Draw a house'),
-          step == 2
-              ? Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: finall.keys
-                      .take(1)
-                      .map((emoji) => _buildDragtarget3(emoji))
-                      .toList())
-              : Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: step == 0
-                      ? choices1.keys
-                          .take(1)
-                          .map((emoji) => _buildDragtarget(emoji))
-                          .toList()
-                      : choices2.keys
-                          .take(1)
-                          .map((emoji) => _buildDragtarget2(emoji))
-                          .toList()),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: choices.keys.map((emoji) {
-              return Draggable<String>(
-                data: emoji,
-                child: Emoji(emoji: score[emoji] == true ? '✔️' : emoji),
-                feedback: Emoji(emoji: emoji),
-                childWhenDragging: Emoji(emoji: emoji),
-              );
-            }).toList()
-              ..shuffle(),
+          Positioned(
+            top: MediaQuery.of(context).size.height * 0.4,
+            right: -88,
+            child: Container(
+              height: 166,
+              width: 166,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Constants.kPinkColor.withOpacity(0.5),
+              ),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(
+                  sigmaX: 200,
+                  sigmaY: 200,
+                ),
+                child: Container(
+                  height: 166,
+                  width: 166,
+                  color: Colors.transparent,
+                ),
+              ),
+            ),
           ),
-        ],
+          Positioned(
+            bottom: -100,
+            left: -100,
+            child: Container(
+              height: 200,
+              width: 200,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Constants.kCyanColor.withOpacity(0.5),
+              ),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(
+                  sigmaX: 200,
+                  sigmaY: 200,
+                ),
+                child: Container(
+                  height: 200,
+                  width: 200,
+                  color: Colors.transparent,
+                ),
+              ),
+            ),
+          ),
+          SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: () async {
+                    _isConnected == false
+                        ? await _connect()
+                        : await _disconnect();
+                  },
+                  child: Text("Start"),
+                ),
+                const Text('Draw a house'),
+                step == 2
+                    ? Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: finall.keys
+                            .take(1)
+                            .map((emoji) => _buildDragtarget3(emoji))
+                            .toList())
+                    : Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: step == 0
+                            ? choices1.keys
+                                .take(1)
+                                .map((emoji) => _buildDragtarget(emoji))
+                                .toList()
+                            : choices2.keys
+                                .take(1)
+                                .map((emoji) => _buildDragtarget2(emoji))
+                                .toList()),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: choices.keys.map((emoji) {
+                    return Draggable<String>(
+                      data: emoji,
+                      child: Emoji(emoji: score[emoji] == true ? '✔️' : emoji),
+                      feedback: Emoji(emoji: emoji),
+                      childWhenDragging: Emoji(emoji: emoji),
+                    );
+                  }).toList()
+                    ..shuffle(),
+                ),
+              ],
+            ),
+          ),
+        ]),
       ),
     );
   }

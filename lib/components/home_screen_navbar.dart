@@ -1,3 +1,4 @@
+import 'package:artie/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'sidebar_button.dart';
@@ -14,9 +15,15 @@ class HomeScreenNavBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SideBarButton(triggerAnimation: triggerAnimation),
-          CircleAvatar(
-            radius: 18.0,
-            backgroundImage: AssetImage('asset/images/profile.jpg'),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => ProfileScreen()));
+            },
+            child: CircleAvatar(
+              radius: 18.0,
+              backgroundImage: AssetImage('asset/images/profile.jpg'),
+            ),
           )
         ],
       ),

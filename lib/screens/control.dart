@@ -140,7 +140,7 @@ class _ControlScreen extends State<ControlScreen> {
 
   late BehaviorSubject<int> willAcceptStream;
 
-    Color background = AppColors.lightBackground;
+  Color background = AppColors.lightBackground;
   Color text = AppColors.lightText;
   Color select = AppColors.lightSelect;
   Color icon = AppColors.lightIcon;
@@ -270,6 +270,7 @@ class _ControlScreen extends State<ControlScreen> {
                       children: <Widget>[
                         InkWell(
                           onTap: () async {
+                            print("try to connect");
                             _isConnected == false
                                 ? await _connect()
                                 : await _disconnect();

@@ -175,7 +175,7 @@ class _FeatureScreenState extends State<FeatureScreen> {
                         ),
                       ),
                     ),
-                    Padding(
+                    /*     Padding(
                       padding: EdgeInsets.only(right: 28.0),
                       child: Container(
                         padding: EdgeInsets.only(
@@ -200,6 +200,7 @@ class _FeatureScreenState extends State<FeatureScreen> {
                         child: Image.asset('asset/icons/icon-play.png'),
                       ),
                     )
+                 */
                   ],
                 ),
                 Padding(
@@ -209,7 +210,7 @@ class _FeatureScreenState extends State<FeatureScreen> {
                     right: 28.0,
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Row(
                         children: [
@@ -221,8 +222,8 @@ class _FeatureScreenState extends State<FeatureScreen> {
                                 child: CircleAvatar(
                                   child: Icon(
                                     Platform.isAndroid
-                                        ? Icons.people
-                                        : CupertinoIcons.group_solid,
+                                        ? Icons.draw
+                                        : CupertinoIcons.hand_draw,
                                     color: Colors.white,
                                   ),
                                   radius: 21.0,
@@ -251,52 +252,6 @@ class _FeatureScreenState extends State<FeatureScreen> {
                               ),
                               Text(
                                 "Students",
-                                style: kSearchPlaceholderStyle,
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Container(
-                            child: Padding(
-                              padding: EdgeInsets.all(4.0),
-                              child: Container(
-                                padding: EdgeInsets.all(4.0),
-                                child: CircleAvatar(
-                                  child: Icon(
-                                    Platform.isAndroid
-                                        ? Icons.format_quote
-                                        : CupertinoIcons.news_solid,
-                                    color: Colors.white,
-                                  ),
-                                  radius: 21.0,
-                                  backgroundColor: kCourseElementIconColor,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: kBackgroundColor,
-                                  borderRadius: BorderRadius.circular(29.0),
-                                ),
-                              ),
-                            ),
-                            height: 58.0,
-                            width: 58.0,
-                            decoration: BoxDecoration(
-                              gradient: widget.feature.background,
-                              borderRadius: BorderRadius.circular(29.0),
-                            ),
-                          ),
-                          SizedBox(width: 12.0),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "12.4k",
-                                style: kTitle2Style,
-                              ),
-                              Text(
-                                "Comments",
                                 style: kSearchPlaceholderStyle,
                               ),
                             ],
@@ -355,14 +310,14 @@ class _FeatureScreenState extends State<FeatureScreen> {
                         height: 24.0,
                       ),
                       Text(
-                        "About this course",
+                        "About this Feature",
                         style: kTitle1Style,
                       ),
                       SizedBox(
                         height: 24.0,
                       ),
                       Text(
-                        "This course was written for people who are passionate about design and about Apple's SwiftUI. It beginner-friendly, but it is also packed with tricks and cool workflows about building the best UI. Currently, Xcode 11 is still in beta so the installation process may be a little hard. However, once you get everything working, then it'll get much friendlier!",
+                        widget.feature.about,
                         style: kBodyLabelStyle,
                       ),
                       SizedBox(height: 24.0),
