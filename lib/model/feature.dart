@@ -120,7 +120,7 @@ var explorefeatures = [
 // Continue Watching features
 var continueWatchingfeatures = [
   Feature(
-    featureTitle: "React for Designers",
+    featureTitle: "Steps to use Artie features",
     featureSubtitle: "SVG Animations",
     background: LinearGradient(
       begin: Alignment.topLeft,
@@ -131,23 +131,6 @@ var continueWatchingfeatures = [
       ],
     ),
     illustration: 'illustration-06.png',
-    logo: 'flutter-logo.png',
-    intro: '',
-    view: Container(),
-    about: '',
-  ),
-  Feature(
-    featureTitle: "Animating in Principle",
-    featureSubtitle: "Multiple Scrolling",
-    background: LinearGradient(
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-      colors: [
-        Color(0xFFFA7D75),
-        Color(0xFFC23D61),
-      ],
-    ),
-    illustration: 'illustration-07.png',
     logo: 'flutter-logo.png',
     intro: '',
     view: Container(),

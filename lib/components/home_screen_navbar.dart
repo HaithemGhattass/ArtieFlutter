@@ -22,7 +22,7 @@ class HomeScreenNavBar extends StatelessWidget {
             },
             child: CircleAvatar(
               radius: 18.0,
-              backgroundImage: AssetImage('asset/images/profile.jpg'),
+              backgroundImage: AssetImage('asset/logos/logo2.png'),
             ),
           )
         ],

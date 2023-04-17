@@ -1,3 +1,4 @@
+import 'package:artie/screens/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -24,7 +25,10 @@ class _SideBarScreenState extends State<SideBarScreen> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.remove('name');
     await prefs.remove('id');
-    await prefs.remove('email').then((value) => Navigator.pop(context));
+    await prefs.remove('email').then((value) => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => SignIn()),
+        ));
 
     return true;
   }

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:artie/constants.dart';
 import 'package:artie/models/child.dart';
 import 'package:artie/screens/editProfile_screen.dart';
+import 'package:artie/screens/home_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -107,7 +108,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             highlightColor: Colors.transparent,
                             splashColor: Colors.transparent,
                             onPressed: () {
-                              Navigator.of(context).pop();
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => HomeScreen(),
+                                ),
+                              );
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -124,15 +130,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             style: kCalloutLabelStyle,
                           ),
                           GestureDetector(
-                             onTap: () {
-             Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => EditProfile(), fullscreenDialog: true),
-      );
-                                
-                          
-                              },
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => EditProfile(),
+                                    fullscreenDialog: true),
+                              );
+                            },
                             child: Container(
                               width: 40.0,
                               height: 40.0,

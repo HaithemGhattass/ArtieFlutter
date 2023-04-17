@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:math';
 import 'dart:ui';
 
+import 'package:artie/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -30,7 +31,7 @@ class _ColorGameState extends State<ColorGame> {
     _motorController = MotorController();
     willAcceptStream = BehaviorSubject<int>();
     willAcceptStream.add(0);
-    super.initState();
+    _connect();
     // call your function here
   }
 
@@ -63,11 +64,20 @@ class _ColorGameState extends State<ColorGame> {
     }
   }
 
+  Future<void> _sendTriangleCommand() async {
+    try {
+      await _motorController.sendCommand('triangle');
+    } on SocketException catch (e) {
+      print(e);
+      _showErrorDialog('Error sending command');
+    }
+  }
+
   Future<void> _connect() async {
     try {
       await _motorController.connect('172.20.10.2', 8003);
       setState(() {
-        print('connecting');
+        print('connecting to draw');
 
         _isConnected = true;
       });
@@ -196,15 +206,9 @@ class _ColorGameState extends State<ColorGame> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ElevatedButton(
-                  onPressed: () async {
-                    _isConnected == false
-                        ? await _connect()
-                        : await _disconnect();
-                  },
-                  child: Text("Start"),
+                const Text(
+                  'Draw a house',
                 ),
-                const Text('Draw a house'),
                 step == 2
                     ? Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -280,6 +284,7 @@ class _ColorGameState extends State<ColorGame> {
       onWillAccept: ((data) => data == emoji),
       onAccept: (data) {
         print('accepted');
+        _sendSquareCommand();
 
         setState(() {
           score[emoji] = true;
