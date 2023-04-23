@@ -13,15 +13,23 @@ class ChildApiService {
   //static const String _baseUrl = "http://192.168.50.73:9090";
   static String? age = "6";
   static late String? name = "farahh";
+    final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  late Future<String> _id;
+  Future<String> _getId() async {
+    final SharedPreferences prefs = await _prefs;
+    final String id = (prefs.getString('id') ?? '');
 
+    return id;
+  }
   static Future<void> AddChild(File? _image) async {
-    if (_image != null) {
+final SharedPreferences prefs = await SharedPreferences.getInstance();
+      final String? id = prefs.getString('id');    if (_image != null) {
       final uri = Uri.parse(Constants.baseUrl + '/child');
       final request = http.MultipartRequest('POST', uri)
         ..files.add(await http.MultipartFile.fromPath('image', _image!.path))
         ..fields['name'] = name!
         ..fields['age'] = age!
-        ..fields['user'] = UserApiServicee.getCurrentUserId()!;
+        ..fields['user'] =id!  ;
       final response = await request.send();
       if (response.statusCode == 200) {
         print('Image uploaded successfully');

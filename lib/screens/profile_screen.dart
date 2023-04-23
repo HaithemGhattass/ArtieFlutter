@@ -261,7 +261,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   child: Row(
                                     children: [
                                       Text(
-                                        "add child",
+                                        "",
                                         style: kSearchPlaceholderStyle,
                                       ),
                                       Icon(
@@ -307,7 +307,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ],
                               ),
                               child: Image.network(
-                                _childs[index].image,
+                             Constants.baseUrl+  "/img/"+ _childs[index].image,
                                 fit: BoxFit.cover,
                                 width: 100.0,
                                 height: 100.0,

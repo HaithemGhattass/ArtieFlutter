@@ -237,7 +237,7 @@ class UserApiServicee {
               name: productJson['name'],
               email: productJson['email'],
               pwd: productJson['pwd'],
-              code: productJson['code'],
+             // code: productJson['code'],
             ))
         .toList();
   }
