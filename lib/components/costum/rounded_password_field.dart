@@ -17,6 +17,10 @@ class RoundedPasswordField extends StatelessWidget {
         keyboardType: TextInputType.emailAddress,
         onSaved: (newValue) => getvalue = newValue,
         onChanged: (String? value) => {UserApiServicee.password = value!},
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        validator: (input) => input!.isValidPass()
+            ? null
+            : "password should have minimun length 6\n and one Upper case at least ",
         decoration: const InputDecoration(
             icon: Icon(
               Icons.lock,
@@ -31,5 +35,11 @@ class RoundedPasswordField extends StatelessWidget {
             border: InputBorder.none),
       ),
     );
+  }
+}
+
+extension EmailValidator on String {
+  bool isValidPass() {
+    return RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z]).{6,}$').hasMatch(this);
   }
 }

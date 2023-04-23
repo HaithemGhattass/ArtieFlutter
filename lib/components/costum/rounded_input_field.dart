@@ -21,6 +21,8 @@ class RoundedInputField extends StatelessWidget {
       child: TextFormField(
         keyboardType: TextInputType.emailAddress,
         onSaved: (newValue) => getvalue = newValue,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        validator: (input) => input!.isValidEmail() ? null : "Check your email",
         onChanged: (String? value) {
           UserApiServicee.email = value!;
           // UserApiServicee.id = 'aaaaa';
@@ -36,5 +38,13 @@ class RoundedInputField extends StatelessWidget {
             border: InputBorder.none),
       ),
     );
+  }
+}
+
+extension EmailValidator on String {
+  bool isValidEmail() {
+    return RegExp(
+            r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+        .hasMatch(this);
   }
 }

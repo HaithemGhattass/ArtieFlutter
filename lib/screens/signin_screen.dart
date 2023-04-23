@@ -146,64 +146,44 @@ class _SignIn extends State<SignIn> {
                         const RoundedPasswordField(),
                         Padding(
                           padding: const EdgeInsets.only(left: 50, right: 40),
-                          child: SwitchListTile(
-                            dense: true,
-                            title: const Text(
-                              'Remember Me',
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontFamily: 'OpenSans',
-                                  color: Constants.kGreyColor),
-                            ),
-                            value: remember!,
-                            activeColor: Constants.kGreenColor,
-                            onChanged: (value) {
-                              setState(() {
-                                remember = value;
-                              });
-                            },
-                          ),
-                        ),
-                        RoundedButton(
-                            text: 'LOGIN',
-                            press: () {
-                              if (_formKey.currentState!.validate()) {
-                                _formKey.currentState!.save();
-                                Map<String, dynamic> userData = {
-                                  "email": email,
-                                  "pwd": pwd
-                                };
-                                Map<String, String> headers = {
-                                  "Content-Type":
-                                      "application/json; charset=UTF-8"
-                                };
+                          child: RoundedButton(
+                              text: 'LOGIN',
+                              press: () {
+                                if (_formKey.currentState!.validate()) {
+                                  _formKey.currentState!.save();
+                                  Map<String, dynamic> userData = {
+                                    "email": email,
+                                    "pwd": pwd
+                                  };
+                                  Map<String, String> headers = {
+                                    "Content-Type":
+                                        "application/json; charset=UTF-8"
+                                  };
 
-                                UserApiServicee.signInWithEmailAndPassword(
-                                    context);
-                                /*  .then((a) => {
+                                  UserApiServicee.signInWithEmailAndPassword(
+                                      context);
+                                  /*  .then((a) => {
                                           print('aaa'),
                                           ChildApiService.getChildsByUser()
                                               .then((value) =>
                                                   Navigator.pushNamed(
                                                       context, "/home"))
                                         }); */
-                              }
-                            }),
+                                }
+                              }),
+                        ),
                         const SizedBox(
                           height: 10,
                         ),
-                        
-                      
-                       GestureDetector(
-                        onTap: () {
-             Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => Forget(), fullscreenDialog: true),
-      );
-                                
-                          
-                              },
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Forget(),
+                                  fullscreenDialog: true),
+                            );
+                          },
                           child: const Text(
                             'Forgot password?',
                             style: TextStyle(
@@ -216,30 +196,27 @@ class _SignIn extends State<SignIn> {
                         const SizedBox(
                           height: 4.0,
                         ),
-                            GestureDetector(
-                              onTap: () {
-             Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => SignUp(), fullscreenDialog: true),
-      );
-                                
-                          
-                              }
-                              ,
-                              child: const Text(
-                                                      'Dont have an account ? Sign up',
-                                                      style: TextStyle(
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SignUp(),
+                                  fullscreenDialog: true),
+                            );
+                          },
+                          child: const Text(
+                            'Dont have an account ? Sign up',
+                            style: TextStyle(
                                 color: Constants.kGreenColor,
                                 fontFamily: 'OpenSans',
                                 fontWeight: FontWeight.w600,
                                 fontSize: 13),
-                                                    ),
-                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
-               
                 ],
               ),
             )

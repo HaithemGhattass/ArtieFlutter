@@ -13,7 +13,7 @@ class SidebarItem {
 
 var sidebarItem = [
   SidebarItem(
-    title: "Home",
+    title: "Profile",
     background: const LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
@@ -23,18 +23,18 @@ var sidebarItem = [
       ],
     ),
     icon: const Icon(
-      Icons.home,
+      Icons.person,
       color: Colors.white,
     ),
   ),
   SidebarItem(
-    title: "Courses",
+    title: "Logout",
     background: const LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
         colors: [Color(0xFFFA7d75), Color(0xFFC23D61)]),
     icon: Icon(
-      Platform.isAndroid ? Icons.library_books : CupertinoIcons.book_solid,
+      Platform.isAndroid ? Icons.logout : CupertinoIcons.arrow_left_circle_fill,
       color: Colors.white,
     ),
   ),

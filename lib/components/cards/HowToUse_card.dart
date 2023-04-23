@@ -81,20 +81,6 @@ class HowTOuseCard extends StatelessWidget {
             ),
           ),
           Container(
-            child: Image.asset('asset/icons/icon-play.png'),
-            width: 60.0,
-            height: 60.0,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(18.0),
-              boxShadow: [
-                BoxShadow(
-                  color: kShadowColor,
-                  offset: Offset(0, 4),
-                  blurRadius: 16.0,
-                ),
-              ],
-            ),
             padding: EdgeInsets.only(
               top: 12.5,
               bottom: 13.5,

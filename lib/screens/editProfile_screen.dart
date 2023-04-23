@@ -6,6 +6,8 @@ import 'package:artie/components/costum/rounded_button.dart';
 import 'package:artie/components/costum/rounded_input_field.dart';
 import 'package:artie/components/costum/rounded_password_field.dart';
 import 'package:artie/constants.dart';
+import 'package:artie/screens/home_screen.dart';
+import 'package:artie/screens/profile_screen.dart';
 import 'package:artie/screens/signin_screen.dart';
 import 'package:artie/screens/signup_screen.dart';
 import 'package:artie/service/userapi_service.dart';
@@ -24,29 +26,29 @@ class EditProfile extends StatefulWidget {
 }
 
 class _EditProfile extends State<EditProfile> {
-   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   String name1 = '';
   String email1 = '';
   Future<void> getName() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-     String? savedName = prefs.getString('name');
-         if (savedName != null) {
+    String? savedName = prefs.getString('name');
+    if (savedName != null) {
       setState(() {
         name1 = savedName;
       });
     }
-
   }
-   Future<void> getEmail() async {
+
+  Future<void> getEmail() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-     String? savedEmail = prefs.getString('email');
-         if (savedEmail != null) {
+    String? savedEmail = prefs.getString('email');
+    if (savedEmail != null) {
       setState(() {
         email1 = savedEmail;
       });
     }
-
   }
+
   final _formKey = GlobalKey<FormState>();
   String? name;
   String? email;
@@ -69,7 +71,8 @@ class _EditProfile extends State<EditProfile> {
       });
     }
   }
-   @override
+
+  @override
   void initState() {
     // TODO: implement initState
 
@@ -173,18 +176,13 @@ class _EditProfile extends State<EditProfile> {
                   SizedBox(
                     height: screenHeight * 0.05,
                   ),
-                  
                   Form(
                     key: _formKey,
                     child: Column(
                       children: [
-                         RoundedInputField2(
-                          hintText: name1, icon: Icons.person),
-                         RoundedInputField(
-                            hintText: email1, icon: Icons.email),
-                        
-                 
-               Padding(
+                        RoundedInputField2(hintText: name1, icon: Icons.person),
+                        RoundedInputField(hintText: email1, icon: Icons.email),
+                        Padding(
                           padding: const EdgeInsets.only(left: 50, right: 40),
                           child: RoundedButton(
                               text: 'UPDATE',
@@ -194,15 +192,13 @@ class _EditProfile extends State<EditProfile> {
                                   Map<String, dynamic> userData = {
                                     "name": name,
                                     "email": email,
-                                    
                                   };
                                   Map<String, String> headers = {
                                     "Content-Type":
                                         "application/json; charset=UTF-8"
                                   };
 
-                                  UserApiServicee.Update(email1,
-                                      context);
+                                  UserApiServicee.Update(email1, context);
                                   /*  .then((a) => {
                                             print('aaa'),
                                             ChildApiService.getChildsByUser()
@@ -216,12 +212,25 @@ class _EditProfile extends State<EditProfile> {
                         const SizedBox(
                           height: 10,
                         ),
-                      
-              
+                        Padding(
+                          padding: const EdgeInsets.only(left: 50, right: 40),
+                          child: RoundedButton(
+                              text: 'RETURN',
+                              press: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ProfileScreen(),
+                                      fullscreenDialog: true),
+                                );
+                              }),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
                       ],
                     ),
                   ),
-               
                 ],
               ),
             )

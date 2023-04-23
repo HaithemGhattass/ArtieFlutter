@@ -247,12 +247,8 @@ class _FeatureScreenState extends State<FeatureScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "28.7k",
+                                "Enjoy with Artie",
                                 style: kTitle2Style,
-                              ),
-                              Text(
-                                "Students",
-                                style: kSearchPlaceholderStyle,
                               ),
                             ],
                           )

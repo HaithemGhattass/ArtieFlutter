@@ -1,3 +1,4 @@
+import 'package:artie/screens/profile_screen.dart';
 import 'package:artie/screens/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -5,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../Constants.dart';
 import '../components/sidebar_row.dart';
 import '../model/sidebar.dart';
+import 'home_screen.dart';
 
 class SideBarScreen extends StatefulWidget {
   @override
@@ -98,20 +100,32 @@ class _SideBarScreenState extends State<SideBarScreen> {
                 ],
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.08),
-              SideBarRow(
-                item: sidebarItem[0],
-              ),
-              //  const SizedBox(height: 32.0),
-              /* SideBarRow(
-                item: sidebarItem[1],
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ProfileScreen(),
+                      fullscreenDialog: true),
+                ),
+                child: SideBarRow(
+                  item: sidebarItem[0],
+                ),
               ),
               const SizedBox(height: 32.0),
+              GestureDetector(
+                onTap: logout,
+                child: SideBarRow(
+                  item: sidebarItem[1],
+                ),
+              ),
+              /* const SizedBox(height: 32.0),
               SideBarRow(
                 item: sidebarItem[2],
               ),
               */
               const SizedBox(height: 32.0),
               const Spacer(),
+              /*
               GestureDetector(
                 onTap: logout,
                 child: Row(
@@ -125,6 +139,7 @@ class _SideBarScreenState extends State<SideBarScreen> {
                   ],
                 ),
               )
+              */
             ],
           ),
         ));

@@ -13,11 +13,13 @@ class HowToUseScreen extends StatefulWidget {
 
 class _HowToUseScreenState extends State<HowToUseScreen> {
   late String howto;
+  late bool tapped;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     howto = 'select something ..';
+    tapped = false;
   }
 
   @override
@@ -59,8 +61,14 @@ class _HowToUseScreenState extends State<HowToUseScreen> {
             child: GestureDetector(
                 onTap: () {
                   setState(() {
-                    howto =
-                        'To use Artie the drawing robot, first ensure that it is fully charged. Once charged, place Artie in the center of the page you wish to draw on. It is important to ensure that the robot is centered as this will ensure the best results. Once the robot is in position, turn it on and select the desired drawing mode . It is important to note that if the robot is not charged properly, it may encounter problems during the drawing process. Therefore, always make sure to charge the robot fully before using it.';
+                    if (tapped) {
+                      howto = 'select something ...';
+                      tapped = false;
+                    } else {
+                      tapped = true;
+                      howto =
+                          'To use Artie the drawing robot, first ensure that it is fully charged. Once charged, place Artie in the center of the page you wish to draw on. It is important to ensure that the robot is centered as this will ensure the best results. Once the robot is in position, turn it on and select the desired drawing mode . It is important to note that if the robot is not charged properly, it may encounter problems during the drawing process. Therefore, always make sure to charge the robot fully before using it.';
+                    }
                   });
                 },
                 child: HowToUseList()),

@@ -19,11 +19,14 @@ class RoundedInputField2 extends StatelessWidget {
     var getvalue = val;
     return TextFieldContainer(
       child: TextFormField(
-        keyboardType: TextInputType.emailAddress,
+        keyboardType: TextInputType.name,
         onSaved: (newValue) => getvalue = newValue,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        validator: (input) =>
+            input!.isNotEmpty ? null : "name should not be empty",
         onChanged: (String? value) {
           UserApiServicee.name = value!;
-          
+
           // UserApiServicee.id = 'aaaaa';
         },
         cursorColor: kPrimaryColor,

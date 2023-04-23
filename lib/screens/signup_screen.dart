@@ -145,16 +145,18 @@ class _SignUp extends State<SignUp> {
                     child: Column(
                       children: [
                         const RoundedInputField2(
-                          hintText: "Name", icon: Icons.person),
+                            hintText: "Name", icon: Icons.person),
                         const RoundedInputField(
                             hintText: "Email", icon: Icons.email),
                         const RoundedPasswordField(),
-                 
-               Padding(
+                        Padding(
                           padding: const EdgeInsets.only(left: 50, right: 40),
                           child: RoundedButton(
                               text: 'REGISTER',
                               press: () {
+                                print(name);
+                                print('pressed');
+
                                 if (_formKey.currentState!.validate()) {
                                   _formKey.currentState!.save();
                                   Map<String, dynamic> userData = {
@@ -167,8 +169,7 @@ class _SignUp extends State<SignUp> {
                                         "application/json; charset=UTF-8"
                                   };
 
-                                  UserApiServicee.signUp(
-                                      context);
+                                  UserApiServicee.signUp(context);
                                   /*  .then((a) => {
                                             print('aaa'),
                                             ChildApiService.getChildsByUser()
@@ -182,31 +183,27 @@ class _SignUp extends State<SignUp> {
                         const SizedBox(
                           height: 10,
                         ),
-                      
-                            GestureDetector(
-                              onTap: () {
-             Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => SignIn(), fullscreenDialog: true),
-      );
-                                
-                          
-                              }
-                              ,
-                              child: const Text(
-                                                      'Already have an account ? Sign in',
-                                                      style: TextStyle(
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SignIn(),
+                                  fullscreenDialog: true),
+                            );
+                          },
+                          child: const Text(
+                            'Already have an account ? Sign in',
+                            style: TextStyle(
                                 color: Constants.kGreenColor,
                                 fontFamily: 'OpenSans',
                                 fontWeight: FontWeight.w600,
                                 fontSize: 13),
-                                                    ),
-                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
-               
                 ],
               ),
             )

@@ -63,6 +63,7 @@ class UserApiServicee {
           });
     }
   }
+
   static Future<String?> signUp(dynamic context) async {
     final response = await http.post(
       Uri.parse(Constants.baseUrl + "/user/add"),
@@ -89,8 +90,16 @@ class UserApiServicee {
                 title: Text("Erreur"),
                 content: Text("Mot de passe ou email invalides"));
           });
+    } else if (response.statusCode == 403) {
+      showDialog(
+          context: context,
+          builder: (builder) {
+            return const AlertDialog(
+                title: Text("Erreur"), content: Text("email already exists"));
+          });
     }
   }
+
   static Future<String?> forgetPWD(dynamic context) async {
     final response = await http.post(
       Uri.parse(Constants.baseUrl + "/user/recover"),
@@ -103,24 +112,21 @@ class UserApiServicee {
     if (response.statusCode == 200) {
       KeyboardUtil.hideKeyboard(context);
       final Map<String, dynamic> responseData = json.decode(response.body);
-      
-    
 
       Navigator.push(
         context,
-        MaterialPageRoute(
-            builder: (context) => Otp(), fullscreenDialog: true),
+        MaterialPageRoute(builder: (context) => Otp(), fullscreenDialog: true),
       );
     } else if (response.statusCode == 400) {
       showDialog(
           context: context,
           builder: (builder) {
             return const AlertDialog(
-                title: Text("Erreur"),
-                content: Text("email invalide"));
+                title: Text("Erreur"), content: Text("email invalide"));
           });
     }
   }
+
   static Future<String?> VerifyOtp(dynamic context) async {
     final response = await http.post(
       Uri.parse(Constants.baseUrl + "/user/changepwcode"),
@@ -137,15 +143,15 @@ class UserApiServicee {
       Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => Changepw(email: email.toString()), fullscreenDialog: true),
+            builder: (context) => Changepw(email: email.toString()),
+            fullscreenDialog: true),
       );
     } else if (response.statusCode == 400) {
       showDialog(
           context: context,
           builder: (builder) {
             return const AlertDialog(
-                title: Text("Erreur"),
-                content: Text("code invalide"));
+                title: Text("Erreur"), content: Text("code invalide"));
           });
     }
   }
@@ -173,11 +179,11 @@ class UserApiServicee {
           context: context,
           builder: (builder) {
             return const AlertDialog(
-                title: Text("Erreur"),
-                content: Text("code invalide"));
+                title: Text("Erreur"), content: Text("code invalide"));
           });
     }
   }
+
   static Future<String?> Update(String email, dynamic context) async {
     final response = await http.put(
       Uri.parse(Constants.baseUrl + "/user/update/$email"),
@@ -201,13 +207,12 @@ class UserApiServicee {
       print(_user!.pwd);
       print('(------)');
       SharedPreferences prefs = await SharedPreferences.getInstance();
-       await prefs.remove('name');
-       await prefs.remove('name');
+      await prefs.remove('name');
+      await prefs.remove('name');
       await prefs.setString('id', _user!.id);
       await prefs.setString('name', _user!.name);
       await prefs.setString('email', _user!.email);
       print(responseData);
-
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -218,8 +223,7 @@ class UserApiServicee {
           context: context,
           builder: (builder) {
             return const AlertDialog(
-                title: Text("Erreur"),
-                content: Text("nom ou email invalides"));
+                title: Text("Erreur"), content: Text("nom ou email invalides"));
           });
     }
   }

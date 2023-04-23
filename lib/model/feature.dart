@@ -59,6 +59,7 @@ var recentfeatures = [
     about:
         'With the controller in hand, you can send Artie in any direction you choose, guiding it around corners, over obstacles, and through tight spaces, This remote is perfect for children who enjoy action-packed games and want to experience the thrill of controlling a powerful and unstoppable tank robot.',
   ),
+/*
   Feature(
     featureTitle: "Let Artie play around",
     featureSubtitle: "Play",
@@ -77,6 +78,7 @@ var recentfeatures = [
     about:
         'As soon as you press the start button, Artie comes to life and begins moving around the house. Artie have control over his movements, and you can navigate through various obstacles and challenges',
   ),
+*/
 ];
 
 // Explore features
