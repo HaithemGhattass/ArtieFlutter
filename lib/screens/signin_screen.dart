@@ -8,11 +8,9 @@ import 'package:artie/constants.dart';
 import 'package:artie/screens/forgetpwd_screen.dart';
 import 'package:artie/screens/signup_screen.dart';
 import 'package:artie/service/userapi_service.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -141,13 +139,13 @@ class _SignIn extends State<SignIn> {
                     key: _formKey,
                     child: Column(
                       children: [
-                        const RoundedInputField(
-                            hintText: "Email", icon: Icons.email),
+                         RoundedInputField(
+                                 hintText: AppLocalizations.of(context)!.email , icon: Icons.email),
                         const RoundedPasswordField(),
                         Padding(
                           padding: const EdgeInsets.only(left: 50, right: 40),
                           child: RoundedButton(
-                              text: 'LOGIN',
+                              text: AppLocalizations.of(context)!.login,
                               press: () {
                                 if (_formKey.currentState!.validate()) {
                                   _formKey.currentState!.save();
@@ -184,8 +182,9 @@ class _SignIn extends State<SignIn> {
                                   fullscreenDialog: true),
                             );
                           },
-                          child: const Text(
-                            'Forgot password?',
+                          child:  Text(
+                            
+                            AppLocalizations.of(context)!.forgotpassword,
                             style: TextStyle(
                                 color: Constants.kGreenColor,
                                 fontFamily: 'OpenSans',
@@ -205,8 +204,10 @@ class _SignIn extends State<SignIn> {
                                   fullscreenDialog: true),
                             );
                           },
-                          child: const Text(
-                            'Dont have an account ? Sign up',
+                          child:  Text(
+                                                        AppLocalizations.of(context)!.donthaveanaccountSignup,
+
+                            
                             style: TextStyle(
                                 color: Constants.kGreenColor,
                                 fontFamily: 'OpenSans',

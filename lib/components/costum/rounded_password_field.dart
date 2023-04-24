@@ -1,5 +1,6 @@
 import 'package:artie/service/userapi_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'textfield_container.dart';
 

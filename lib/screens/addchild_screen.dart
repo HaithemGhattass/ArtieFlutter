@@ -1,6 +1,8 @@
 import 'package:artie/service/childapi_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:artie/components/costum/rounded_input_field.dart';
 
 import 'addImage_screen.dart';
 
@@ -14,6 +16,9 @@ class AddChild extends StatelessWidget {
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          // RoundedInputField(
+                                // hintText: AppLocalizations.of(context)!.email , icon: Icons.email),
+       
           TextFormField(
             decoration: InputDecoration(
               labelText: 'add child',

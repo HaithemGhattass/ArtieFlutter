@@ -1,0 +1,49 @@
+{
+  "login": "Login",
+  "name": "Child Name",
+  "wedLoveToHelpYouCreateSpecialSpaces": "We'd want to help you create special spaces for your children, where our robot can draw fun and age-appropriate pictures for them",
+  "imaginarium":"Imaginarium",
+  "craeteSpace":"Craete Space",
+  "age":"Age",
+  "chooseAnImage":"Choose an Image",
+  "save":"Save",
+  "cancel":"Cancel",
+  "doYouWantToDesignTheImage":"Do you want to design the image?",
+  "whatwouldyouliketocolor":"What would you\nlike to color?",
+  "simpleshapes":"Simple Shapes",
+  "complexdraws":"Complex Draws",
+  "rememberme":"Remember Me",
+  "search":"Search",
+  "email":"Email",
+  "forgotpassword":"Forgot password?",
+  "connectwithartieforafantasicexperience":"Connect with Artie\n For a fantasic experience",
+  "artietherobot":"Artie the Robot",
+  "pleaseenteryourname":"pleaseenteryourname",
+  "choose":"choose",
+  "change":"change",
+  "donthaveanaccountSignup":"Dont have an account ? Sign up",
+  "alreadyhaveanaccountsignin":"Already have an account sign in",
+  "welcomeBack":"Welcome Back ",
+  "profile":"Profile",
+  "children":"children",
+  "otp":"OTP",
+  "verify":"VERIFY",
+  "touseArtiethedrawingrobotfirstensurethatitisfullychargedOncechargedplaceArtieinthecenterofthepageyouwishtodrawonItisimportanttoensurethattherobotiscenteredasthiswillensurethebestresultsOncetherobotisinpositionturnitonandselectthedesireddrawingmodeItisimportanttonotethatiftherobotisnotchargedproperlyitmayencounterproblemsduringthedrawingprocessThereforealwaysmakesuretochargetherobotfullybeforeusingit":"To use Artie the drawing robot, first ensure that it is fully charged. Once charged, place Artie in the center of the page you wish to draw on. It is important to ensure that the robot is centered as this will ensure the best results. Once the robot is in position, turn it on and select the desired drawing mode . It is important to note that if the robot is not charged properly, it may encounter problems during the drawing process. Therefore, always make sure to charge the robot fully before using it.",
+  "selectsomething":"select something ...",
+  "howtouseArtieFeatures":"How to use Artie Features",
+  "artiefeatures":"Artie Features",
+  "thisisthebetaversionmorecoming":"this is the beta version more coming",
+  "comingsoon":"Coming soon",
+  "send":"SEND",
+  "aboutthisFeature":"About this Feature",
+  "play":"Play",
+  "enjoywithArtie":"Enjoy with Artie",
+  "returne":"RETURN",
+  "update":"Update"
+
+
+
+
+
+
+}

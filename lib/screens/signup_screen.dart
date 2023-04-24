@@ -2,17 +2,13 @@ import 'dart:ui';
 
 import 'package:artie/components/costum/costum_outline.dart';
 import 'package:artie/components/costum/rounded_button.dart';
-import 'package:artie/components/costum/rounded_input_field.dart';
 import 'package:artie/components/costum/rounded_password_field.dart';
 import 'package:artie/constants.dart';
 import 'package:artie/screens/signin_screen.dart';
-import 'package:artie/screens/signup_screen.dart';
 import 'package:artie/service/userapi_service.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 import '../components/costum/rounded_input_field2.dart';
 
@@ -144,15 +140,15 @@ class _SignUp extends State<SignUp> {
                     key: _formKey,
                     child: Column(
                       children: [
-                        const RoundedInputField2(
-                            hintText: "Name", icon: Icons.person),
-                        const RoundedInputField(
-                            hintText: "Email", icon: Icons.email),
+                         RoundedInputField2(
+                            hintText: AppLocalizations.of(context)!.name, icon: Icons.person),
+                         RoundedInputField(
+                            hintText: AppLocalizations.of(context)!.email, icon: Icons.email),
                         const RoundedPasswordField(),
                         Padding(
                           padding: const EdgeInsets.only(left: 50, right: 40),
                           child: RoundedButton(
-                              text: 'REGISTER',
+                              text: AppLocalizations.of(context)!.save,
                               press: () {
                                 print(name);
                                 print('pressed');
@@ -192,8 +188,8 @@ class _SignUp extends State<SignUp> {
                                   fullscreenDialog: true),
                             );
                           },
-                          child: const Text(
-                            'Already have an account ? Sign in',
+                          child:  Text(
+                            AppLocalizations.of(context)!.alreadyhaveanaccountsignin,
                             style: TextStyle(
                                 color: Constants.kGreenColor,
                                 fontFamily: 'OpenSans',

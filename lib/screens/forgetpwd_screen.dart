@@ -8,6 +8,7 @@ import 'package:artie/constants.dart';
 import 'package:artie/screens/signin_screen.dart';
 import 'package:artie/screens/signup_screen.dart';
 import 'package:artie/service/userapi_service.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -145,14 +146,14 @@ class _Forget extends State<Forget> {
                     child: Column(
                       children: [
                         
-                        const RoundedInputField(
-                            hintText: "Email", icon: Icons.email),
+                         RoundedInputField(
+                            hintText: AppLocalizations.of(context)!.email, icon: Icons.email),
                         
                  
                Padding(
                           padding: const EdgeInsets.only(left: 50, right: 40),
                           child: RoundedButton(
-                              text: 'SEND',
+                              text:AppLocalizations.of(context)!.send,
                               press: () {
                                 if (_formKey.currentState!.validate()) {
                                   _formKey.currentState!.save();
