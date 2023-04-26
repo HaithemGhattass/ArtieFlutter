@@ -19,6 +19,7 @@ class UserApiServicee {
   static String? code;
   static String? id;
   static String? id2;
+  static bool? verified;
 
   // Se connecter avec email et mot de passe
   static Future<String?> signInWithEmailAndPassword(dynamic context) async {
@@ -36,23 +37,36 @@ class UserApiServicee {
       _user = User.fromJson(responseData['user']);
       id = _user!.id;
       id2 = _user!.id;
-
+      verified = _user!.verified;
       print('(------)');
 
       print(_user!.id);
       print(_user!.name);
       print(_user!.pwd);
       print('(------)');
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      await prefs.setString('id', _user!.id);
-      await prefs.setString('name', _user!.name);
-      await prefs.setString('email', _user!.email);
 
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => HomeScreen(), fullscreenDialog: true),
-      );
+      print(_user!.verified);
+      print('(------)');
+      if (!verified!) {
+        showDialog(
+            context: context,
+            builder: (builder) {
+              return const AlertDialog(
+                  title: Text("Erreur"),
+                  content: Text("please verify your email"));
+            });
+      } else {
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        await prefs.setString('id', _user!.id);
+        await prefs.setString('name', _user!.name);
+        await prefs.setString('email', _user!.email);
+
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => HomeScreen(), fullscreenDialog: true),
+        );
+      }
     } else if (response.statusCode == 400) {
       showDialog(
           context: context,
@@ -62,6 +76,7 @@ class UserApiServicee {
                 content: Text("Mot de passe ou email invalides"));
           });
     }
+    print(verified);
   }
 
   static Future<String?> signUp(dynamic context) async {
@@ -233,12 +248,12 @@ class UserApiServicee {
     final json = jsonDecode(response.body);
     return json
         .map<User>((productJson) => User(
-              id: productJson['_id'],
-              name: productJson['name'],
-              email: productJson['email'],
-              pwd: productJson['pwd'],
-             // code: productJson['code'],
-            ))
+            id: productJson['_id'],
+            name: productJson['name'],
+            email: productJson['email'],
+            pwd: productJson['pwd'],
+            code: productJson['code'],
+            verified: productJson['verified']))
         .toList();
   }
 

@@ -125,5 +125,5 @@ class Constants {
   static const String kMaskCast = 'assets/mask/mask_cast.png';
 
   // Constant Server
-  static const String baseUrl = 'http://192.168.1.103:9090';
+  static const String baseUrl = 'http://localhost:9090';
 }

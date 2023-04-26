@@ -135,16 +135,18 @@ class _SignUp extends State<SignUp> {
                     ),
                   ),
                   SizedBox(
-                    height: screenHeight * 0.05,
+                    height: screenHeight * 0.01,
                   ),
                   Form(
                     key: _formKey,
                     child: Column(
                       children: [
-                         RoundedInputField2(
-                            hintText: AppLocalizations.of(context)!.name, icon: Icons.person),
-                         RoundedInputField(
-                            hintText: AppLocalizations.of(context)!.email, icon: Icons.email),
+                        RoundedInputField2(
+                            hintText: AppLocalizations.of(context)!.name,
+                            icon: Icons.person),
+                        RoundedInputField(
+                            hintText: AppLocalizations.of(context)!.email,
+                            icon: Icons.email),
                         const RoundedPasswordField(),
                         Padding(
                           padding: const EdgeInsets.only(left: 50, right: 40),
@@ -189,8 +191,9 @@ class _SignUp extends State<SignUp> {
                                   fullscreenDialog: true),
                             );
                           },
-                          child:  Text(
-                            AppLocalizations.of(context)!.alreadyhaveanaccountsignin,
+                          child: Text(
+                            AppLocalizations.of(context)!
+                                .alreadyhaveanaccountsignin,
                             style: TextStyle(
                                 color: Constants.kGreenColor,
                                 fontFamily: 'OpenSans',
