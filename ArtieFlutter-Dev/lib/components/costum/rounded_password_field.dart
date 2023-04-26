@@ -1,12 +1,14 @@
 import 'package:artie/service/userapi_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'textfield_container.dart';
 
 class RoundedPasswordField extends StatelessWidget {
-  const RoundedPasswordField({Key? key, this.val}) : super(key: key);
+  const RoundedPasswordField({Key? key, this.val, this.hintText})
+      : super(key: key);
   final String? val;
+  final String? hintText;
+
   @override
   Widget build(BuildContext context) {
     const kPrimaryColor = Color(0xfff1bb274);
@@ -22,12 +24,12 @@ class RoundedPasswordField extends StatelessWidget {
         validator: (input) => input!.isValidPass()
             ? null
             : "password should have minimun length 6\n and one Upper case at least ",
-        decoration: const InputDecoration(
+        decoration: InputDecoration(
             icon: Icon(
               Icons.lock,
               color: kPrimaryColor,
             ),
-            hintText: "Password",
+            hintText: hintText,
             hintStyle: TextStyle(fontFamily: 'OpenSans'),
             suffixIcon: Icon(
               Icons.visibility,

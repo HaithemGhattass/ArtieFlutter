@@ -7,6 +7,7 @@ import 'package:artie/constants.dart';
 import 'package:artie/screens/signin_screen.dart';
 import 'package:artie/screens/signup_screen.dart';
 import 'package:artie/service/userapi_service.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -24,7 +25,7 @@ class Changepw extends StatefulWidget {
 }
 
 class _Changepw extends State<Changepw> {
-    final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   late Future<String> _email;
   Future<String> _getname() async {
     final SharedPreferences prefs = await _prefs;
@@ -35,7 +36,7 @@ class _Changepw extends State<Changepw> {
 
   final _formKey = GlobalKey<FormState>();
   String? name;
-  
+
   String? pwd;
   bool? remember = false;
   final List<String?> errors = [];
@@ -55,7 +56,8 @@ class _Changepw extends State<Changepw> {
       });
     }
   }
-   @override
+
+  @override
   void initState() {
     // TODO: implement initState
 
@@ -164,11 +166,9 @@ class _Changepw extends State<Changepw> {
                     key: _formKey,
                     child: Column(
                       children: [
-                        
-                        const RoundedPasswordField(),
-                        
-                 
-               Padding(
+                        RoundedPasswordField(
+                            hintText: AppLocalizations.of(context)!.password),
+                        Padding(
                           padding: const EdgeInsets.only(left: 50, right: 40),
                           child: RoundedButton(
                               text: 'Change',
@@ -176,18 +176,15 @@ class _Changepw extends State<Changepw> {
                                 if (_formKey.currentState!.validate()) {
                                   _formKey.currentState!.save();
                                   Map<String, dynamic> userData = {
-                                    
                                     "email": widget.email,
                                     "pwd": pwd
-                                    
                                   };
                                   Map<String, String> headers = {
                                     "Content-Type":
                                         "application/json; charset=UTF-8"
                                   };
 
-                                  UserApiServicee.changepw(
-                                      context);
+                                  UserApiServicee.changepw(context);
                                   /*  .then((a) => {
                                             print('aaa'),
                                             ChildApiService.getChildsByUser()
@@ -201,11 +198,9 @@ class _Changepw extends State<Changepw> {
                         const SizedBox(
                           height: 10,
                         ),
-                      
                       ],
                     ),
                   ),
-               
                 ],
               ),
             )

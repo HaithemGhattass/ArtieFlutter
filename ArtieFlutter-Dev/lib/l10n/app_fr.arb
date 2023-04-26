@@ -4,6 +4,7 @@
     "imaginarium,":"Imaginarium",
     "createSpace":"Créer Un Espace",
     "age":"Age",
+    "password": "password",
     "chooseAnImage":"Choisir une image",
     "save":"Enregistrer",
     "cancel":"Annuler",

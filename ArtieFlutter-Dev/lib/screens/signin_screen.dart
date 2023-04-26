@@ -139,9 +139,11 @@ class _SignIn extends State<SignIn> {
                     key: _formKey,
                     child: Column(
                       children: [
-                         RoundedInputField(
-                                 hintText: AppLocalizations.of(context)!.email , icon: Icons.email),
-                        const RoundedPasswordField(),
+                        RoundedInputField(
+                            hintText: AppLocalizations.of(context)!.email,
+                            icon: Icons.email),
+                        RoundedPasswordField(
+                            hintText: AppLocalizations.of(context)!.password),
                         Padding(
                           padding: const EdgeInsets.only(left: 50, right: 40),
                           child: RoundedButton(
@@ -182,8 +184,7 @@ class _SignIn extends State<SignIn> {
                                   fullscreenDialog: true),
                             );
                           },
-                          child:  Text(
-                            
+                          child: Text(
                             AppLocalizations.of(context)!.forgotpassword,
                             style: TextStyle(
                                 color: Constants.kGreenColor,
@@ -204,10 +205,9 @@ class _SignIn extends State<SignIn> {
                                   fullscreenDialog: true),
                             );
                           },
-                          child:  Text(
-                                                        AppLocalizations.of(context)!.donthaveanaccountSignup,
-
-                            
+                          child: Text(
+                            AppLocalizations.of(context)!
+                                .donthaveanaccountSignup,
                             style: TextStyle(
                                 color: Constants.kGreenColor,
                                 fontFamily: 'OpenSans',

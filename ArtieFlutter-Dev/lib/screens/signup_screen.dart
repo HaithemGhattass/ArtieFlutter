@@ -147,7 +147,8 @@ class _SignUp extends State<SignUp> {
                         RoundedInputField(
                             hintText: AppLocalizations.of(context)!.email,
                             icon: Icons.email),
-                        const RoundedPasswordField(),
+                        RoundedPasswordField(
+                            hintText: AppLocalizations.of(context)!.password),
                         Padding(
                           padding: const EdgeInsets.only(left: 50, right: 40),
                           child: RoundedButton(
