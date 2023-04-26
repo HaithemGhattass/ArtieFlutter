@@ -1,0 +1,61 @@
+  {
+    "login": "CONNEXION",
+    "name": "Nom de l'enfant",
+    "imaginarium,":"Imaginarium",
+    "createSpace":"Créer Un Espace",
+    "age":"Age",
+    "chooseAnImage":"Choisir une image",
+    "save":"Enregistrer",
+    "cancel":"Annuler",
+    "doYouWantToDesignTheImage":"Voulez-vous dessigner l'image ?",
+    "whatwouldyouliketocolor":"Que souhaitez-vous colorier ?",
+    "simpleshapes":"formes simples",
+    "complexdraws":"Dessins complexes",
+    "rememberme":"Se souvenir de moi",
+    "search":"Recherche",
+    "email":"Email",
+    "forgotpassword":"avez-vous oublié le mot de passe ?",
+    "connectwithartieforafantasicexperience":"Connectez-vous à Artie pour une expérience fantastique",
+    "artietherobot":"Artie le Robot",
+    "pleaseenteryourname":"Veuillez entrer votre nom",
+    "choose":"Choisir",
+    "change":"Changer",
+    "donthaveanaccountSignup":"Vous n'avez pas de compte ? Inscrivez-vous.",
+    "alreadyhaveanaccountsignin":"Vous avez déjà un compte ? Connectez-vous",
+    "welcomeBack":"Bienvenue de retour ",
+    "profile":"Profil",
+    "children":"Enfants",
+    "otp":"OTP",
+    "verify":"Vérifier",
+      "touseArtiethedrawingrobotfirstensurethatitisfullychargedOncechargedplaceArtieinthecenterofthepageyouwishtodrawonItisimportanttoensurethattherobotiscenteredasthiswillensurethebestresultsOncetherobotisinpositionturnitonandselectthedesireddrawingmodeItisimportanttonotethatiftherobotisnotchargedproperlyitmayencounterproblemsduringthedrawingprocessThereforealwaysmakesuretochargetherobotfullybeforeusingit":"Pour utiliser Artie, le robot dessinateur, assurez-vous d'abord qu'il est complètement chargé. Une fois chargé, placez Artie au centre de la page sur laquelle vous souhaitez dessiner. Il est important de s'assurer que le robot est centré car cela garantira les meilleurs résultats. Une fois le robot en position, allumez-le et sélectionnez le mode de dessin souhaité. Il est important de noter que si le robot n'est pas correctement chargé, il peut rencontrer des problèmes lors du processus de dessin. Par conséquent, assurez-vous toujours de charger le robot complètement avant de l'utiliser.",
+  "selectsomething":"Sélectionner quelque chose ...",
+  "howtouseArtieFeatures":"Comment utiliser les fonctionnalités Artie",
+   "artiefeatures":"Fonctionnalités Artie",
+  "thisisthebetaversionmorecoming":"Ceci est la version bêta, plus à venir",
+  "comingsoon":"Bientôt disponible",
+  "send":"Envoyer",
+  "aboutthisFeature":"À propos de cette fonctionnalité",
+  "play":"jouer",
+  "enjoywithArtie":"Profitez avec Artie",
+  "returne":"Retourner",
+  "update":"Maitre à jour"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+  }  
