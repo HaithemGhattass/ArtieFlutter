@@ -142,7 +142,7 @@ class _SignUp extends State<SignUp> {
                     child: Column(
                       children: [
                         RoundedInputField2(
-                            hintText: AppLocalizations.of(context)!.name,
+                            hintText: AppLocalizations.of(context)!.nameP,
                             icon: Icons.person),
                         RoundedInputField(
                             hintText: AppLocalizations.of(context)!.email,

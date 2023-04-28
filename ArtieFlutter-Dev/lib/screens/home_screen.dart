@@ -3,6 +3,7 @@ import 'package:artie/components/list/recent_feature_list.dart';
 import 'package:artie/constants.dart';
 import 'package:artie/models/image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../components/list/Gcode_draws_list.dart';
 import '../service/childapi_service.dart';
@@ -65,10 +66,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          Text("Artie features", style: kLargeTitleStyle),
+                          Text(AppLocalizations.of(context)!.artiefeatures, style: kLargeTitleStyle),
                           SizedBox(height: 5.0),
                           Text(
-                            "this is the beta version, more coming",
+                            AppLocalizations.of(context)!.thisisthebetaversionmorecoming,
                             style: kSubtitleStyle,
                           )
                         ],
@@ -83,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             Text(
-                              "Coming soon",
+                           AppLocalizations.of(context)!.comingsoon,
                               style: kTitle1Style,
                             ),
                           ]),

@@ -17,6 +17,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../components/costum/rounded_input_field2.dart';
 
@@ -185,7 +186,7 @@ class _EditProfile extends State<EditProfile> {
                         Padding(
                           padding: const EdgeInsets.only(left: 50, right: 40),
                           child: RoundedButton(
-                              text: 'UPDATE',
+                              text:  AppLocalizations.of(context)!.update,
                               press: () {
                                 if (_formKey.currentState!.validate()) {
                                   _formKey.currentState!.save();
@@ -215,7 +216,7 @@ class _EditProfile extends State<EditProfile> {
                         Padding(
                           padding: const EdgeInsets.only(left: 50, right: 40),
                           child: RoundedButton(
-                              text: 'RETURN',
+                              text:  AppLocalizations.of(context)!.returne,
                               press: () {
                                 Navigator.push(
                                   context,

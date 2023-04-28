@@ -171,7 +171,7 @@ class _Changepw extends State<Changepw> {
                         Padding(
                           padding: const EdgeInsets.only(left: 50, right: 40),
                           child: RoundedButton(
-                              text: 'Change',
+                              text: AppLocalizations.of(context)!.change,
                               press: () {
                                 if (_formKey.currentState!.validate()) {
                                   _formKey.currentState!.save();

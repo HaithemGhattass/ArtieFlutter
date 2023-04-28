@@ -1,6 +1,9 @@
   {
     "login": "تسجيل الدخول",
     "name": "اسم الطفل",
+    "nameP": "اسم",
+  "hello":"مرحبا,",
+
     "createSpace":"إنشاء فضاء",
     "age":"العمر",
       "chooseAnImage":"اختر صورة",
@@ -39,7 +42,11 @@
   "play":"لعب",
   "enjoywithArtie":" Artie استمتع مع   ",
   "returne":"رجوع",
-  "update":"تحديث"
+  "update":"تحديث",
+    "createaspecialspaceforyourkids":"أنشئ مساحة خاصة لأطفالك.",
+      "space":"فضاء"
+
+
 
 
 

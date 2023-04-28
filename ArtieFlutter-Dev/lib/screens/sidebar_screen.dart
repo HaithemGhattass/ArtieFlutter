@@ -2,6 +2,7 @@ import 'package:artie/screens/profile_screen.dart';
 import 'package:artie/screens/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../Constants.dart';
 import '../components/sidebar_row.dart';
@@ -82,7 +83,7 @@ class _SideBarScreenState extends State<SideBarScreen> {
                             case ConnectionState.active:
                             case ConnectionState.done:
                               return Text(
-                                'Welcome Back ${snapshot.data}',
+                                AppLocalizations.of(context)!.welcomeBack+ '${snapshot.data}',
                                 style: kHeadlineLabelStyle,
                               );
                           }

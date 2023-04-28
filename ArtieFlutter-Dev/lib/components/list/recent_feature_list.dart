@@ -2,6 +2,8 @@ import 'package:artie/components/cards/recent_feature_card.dart';
 import 'package:artie/model/feature.dart';
 import 'package:artie/screens/feature_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class MainCardsList extends StatefulWidget {
   const MainCardsList({super.key});

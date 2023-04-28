@@ -1,6 +1,8 @@
 import 'package:artie/screens/control.dart';
 import 'package:artie/screens/draw_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class Feature {
   Feature(
@@ -21,6 +23,8 @@ class Feature {
   Widget view;
   String about;
 }
+   // AppLocalizations.of(context)!.welcomeBack,
+
 
 // Recent features
 var recentfeatures = [

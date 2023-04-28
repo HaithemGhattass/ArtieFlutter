@@ -1,6 +1,8 @@
 {
+  "hello":"Hello,",
   "login": "Login",
   "name": "Child Name",
+  "nameP": "Name",
   "createSpace":"Create Space",
   "age":"Age",
   "chooseAnImage":"Choose an Image",
@@ -38,7 +40,9 @@
   "play":"Play",
   "enjoywithArtie":"Enjoy with Artie",
   "returne":"RETURN",
-  "update":"Update"
+  "update":"Update",
+  "createaspecialspaceforyourkids":"Create a special space for your kids",
+  "space":"Space"
 
 
 
