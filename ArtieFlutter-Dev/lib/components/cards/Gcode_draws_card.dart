@@ -32,8 +32,7 @@ class GcodeDrawsCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: 6.0),
-                      Text(
-                        'Future pictures to draw',
+                      Text(    AppLocalizations.of(context)!.futurepicturestodraw,
                         style: kCardTitleStyle,
                       )
                     ],

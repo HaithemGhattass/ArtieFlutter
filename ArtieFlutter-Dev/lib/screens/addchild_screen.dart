@@ -29,7 +29,7 @@ class AddChild extends StatelessWidget {
           
           OutlinedButton.icon(
             icon: Icon(Icons.cloud_upload),
-            label: Text('choose', style: TextStyle(color: Colors.black)),
+            label: Text(AppLocalizations.of(context)!.choose, style: TextStyle(color: Colors.black)),
             onPressed: () {
               Navigator.push(
                 context,
@@ -46,7 +46,7 @@ class AddChild extends StatelessWidget {
       actions: [
         ElevatedButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: Text('canel'),
+          child: Text(AppLocalizations.of(context)!.cancel),
           style: ElevatedButton.styleFrom(
             primary: Colors.grey,
           ),
@@ -56,7 +56,7 @@ class AddChild extends StatelessWidget {
             // TODO: Handle form submission
             Navigator.of(context).pop();
           },
-          child: Text('save'),
+          child: Text(AppLocalizations.of(context)!.save),
           style: ElevatedButton.styleFrom(
                  primary:       Color(0xFF0971FE).withOpacity(0.6),
 

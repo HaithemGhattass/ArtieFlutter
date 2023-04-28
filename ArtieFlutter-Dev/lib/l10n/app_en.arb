@@ -42,7 +42,21 @@
   "returne":"RETURN",
   "update":"Update",
   "createaspecialspaceforyourkids":"Create a special space for your kids",
-  "space":"Space"
+  "space":"Space",
+      "logout":"Logout",
+      "learntocoloranddraw":"Apprenez à colorier et dessiner",
+       "learning":"Learning",
+       "exploredifferentshapesandcolorsYouarepresentedwithaseriesofshapesandyoumustchoosethecorrectonetoprogresstothenextlevelOnceyouhaveselectedthecorrectshapeArtiebeginstodrawitonthescreenYouwillneedtorepeatthisprocesswithalltheshapesuntilthedrawingis":"Explore different shapes and colors. You are presented with a series of shapes, and you must choose the correct one to progress to the next level. Once you have selected the correct shape, Artie begins to draw it on the screen. You will need to repeat this process with all the shapes until the drawing is complete. Once all the shapes are drawn, you can start to color the image, using a variety of different colors and tools. This game is perfect for anyone who enjoys puzzles and wants to unleash their inner artist.",
+        "learntocoloranddrawwithArtie":"Apprenez à colorier et dessiner avec Artie",
+        "remotecontrolArtie":"Remote control Artie",
+        "remote":"Remote",
+        "controlartiewithyourremote":"control artie with your remote",
+        "withthecontrollerinhandyoucansendArtieinanydirectionyouchooseguidingitaroundcornersoverobstaclesandthroughtightspaces":"With the controller in hand, you can send Artie in any direction you choose, guiding it around corners, over obstacles, and through tight spaces, This remote is perfect for children who enjoy action-packed games and want to experience the thrill of controlling a powerful and unstoppable tank robot.",
+                "futurepicturestodraw":"Future pictures to draw"
+
+
+
+
 
 
 
