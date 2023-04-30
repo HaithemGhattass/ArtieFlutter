@@ -4,7 +4,8 @@
     "imaginarium,":"Imaginarium",
     "createSpace":"Créer Un Espace",
     "age":"Age",
-    "password": "password",
+    "password": "mot de passe ",
+    "futurepicturestodraw":"futur image à dessiner",
     "chooseAnImage":"Choisir une image",
     "save":"Enregistrer",
     "cancel":"Annuler",
@@ -39,7 +40,8 @@
   "play":"jouer",
   "enjoywithArtie":"Profitez avec Artie",
   "returne":"Retourner",
-  "update":"Maitre à jour"
+  "update":"Maitre à jour",
+  "learntocoloranddraw":"Apprendre à colorier et à dessiner"
 
 
 

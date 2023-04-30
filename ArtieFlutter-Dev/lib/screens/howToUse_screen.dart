@@ -3,6 +3,7 @@ import 'package:artie/components/list/howToUse_list.dart';
 import 'package:artie/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HowToUseScreen extends StatefulWidget {
   const HowToUseScreen({super.key});
@@ -52,7 +53,7 @@ class _HowToUseScreenState extends State<HowToUseScreen> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 32.0),
             child: Text(
-              "How to use Artie Features",
+              AppLocalizations.of(context).howtouseArtieFeatures,
               style: kTitle2Style,
             ),
           ),

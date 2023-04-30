@@ -27,10 +27,17 @@ class _ControlScreen extends State<ControlScreen> {
     _connect();
   }
 
+  @override
+  void dispose() {
+    print('dispoosed');
+    _disconnect();
+    super.dispose();
+  }
+
   Future<void> _connect() async {
     print('conneeeeectiing 1');
     try {
-      await _motorController.connect('172.20.10.2', 8003);
+      await _motorController.connect('192.168.4.1', 8003);
       setState(() {
         print('connecting');
 

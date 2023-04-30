@@ -2,6 +2,7 @@ import 'package:artie/Constants.dart';
 import 'package:artie/model/feature.dart';
 import 'package:artie/models/image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class GcodeDrawsCard extends StatelessWidget {
   const GcodeDrawsCard(
@@ -31,7 +32,7 @@ class GcodeDrawsCard extends StatelessWidget {
                     children: [
                       SizedBox(height: 6.0),
                       Text(
-                        'Future pictures to draw',
+                        AppLocalizations.of(context)!.futurepicturestodraw,
                         style: kCardTitleStyle,
                       )
                     ],
