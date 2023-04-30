@@ -4,6 +4,7 @@ import 'package:artie/models/child.dart';
 import 'package:artie/models/image%20copy.dart';
 import 'package:artie/models/image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ImageByAgeCard extends StatelessWidget {
   const ImageByAgeCard(
@@ -33,7 +34,7 @@ class ImageByAgeCard extends StatelessWidget {
                     children: [
                       SizedBox(height: 6.0),
                       Text(
-                        'Future pictures to draw',
+                          AppLocalizations.of(context)!.futurepicturestodraw,
                         style: kCardTitleStyle,
                       )
                     ],

@@ -12,7 +12,8 @@ class User {
       required this.email,
       required this.pwd,
       required this.code,
-      required this.verified});
+     required this.verified
+   });
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
@@ -21,6 +22,7 @@ class User {
         email: json['email'],
         pwd: json['pwd'],
         code: json['code'],
-        verified: json['verified']);
+        verified: json['verify']
+        );
   }
 }

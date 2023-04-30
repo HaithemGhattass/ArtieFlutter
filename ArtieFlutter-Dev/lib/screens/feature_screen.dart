@@ -5,6 +5,7 @@ import 'package:artie/model/feature.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FeatureScreen extends StatefulWidget {
   FeatureScreen({required this.feature});
@@ -247,7 +248,7 @@ class _FeatureScreenState extends State<FeatureScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Enjoy with Artie",
+                                AppLocalizations.of(context)!.enjoywithArtie,
                                 style: kTitle2Style,
                               ),
                             ],
@@ -285,7 +286,7 @@ class _FeatureScreenState extends State<FeatureScreen> {
                           width: 80.0,
                           height: 40.0,
                           child: Text(
-                            "Play",
+                            AppLocalizations.of(context)!.play,
                             style: kSearchTextStyle,
                           ),
                         ),
@@ -306,7 +307,8 @@ class _FeatureScreenState extends State<FeatureScreen> {
                         height: 24.0,
                       ),
                       Text(
-                        "About this Feature",
+                        AppLocalizations.of(context)!.aboutthisFeature
+                        ,
                         style: kTitle1Style,
                       ),
                       SizedBox(

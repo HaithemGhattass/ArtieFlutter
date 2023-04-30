@@ -1,7 +1,10 @@
 import 'package:artie/components/cards/recent_feature_card.dart';
 import 'package:artie/model/feature.dart';
+import 'package:artie/screens/draw_screen.dart';
 import 'package:artie/screens/feature_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class MainCardsList extends StatefulWidget {
   const MainCardsList({super.key});
@@ -47,7 +50,22 @@ class _MainCardsListState extends State<MainCardsList> {
                     context,
                     MaterialPageRoute(
                         builder: (context) => FeatureScreen(
-                              feature: recentfeatures[index],
+                              feature:  Feature(
+      featureTitle:                           AppLocalizations.of(context)!.learntocoloranddraw,
+      featureSubtitle:     AppLocalizations.of(context)!.learning,
+      background: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [
+          Color(0xFF00AEFF),
+          Color(0xFF0076FF),
+        ],
+      ),
+      illustration: 'drawingnobg1.png',
+      logo: 'logo2.png',
+      intro:AppLocalizations.of(context)!.learntocoloranddrawwithArtie, 
+      view: Container(child: ColorGame()),
+      about:AppLocalizations.of(context)!.exploredifferentshapesandcolorsYouarepresentedwithaseriesofshapesandyoumustchoosethecorrectonetoprogresstothenextlevelOnceyouhaveselectedthecorrectshapeArtiebeginstodrawitonthescreenYouwillneedtorepeatthisprocesswithalltheshapesuntilthedrawingis),
                             ),
                         fullscreenDialog: true),
                   );

@@ -45,7 +45,7 @@ class UserApiServicee {
       print(_user!.pwd);
       print('(------)');
 
-      print(_user!.verified);
+     // print(_user!.verified);
       print('(------)');
       if (!verified!) {
         showDialog(
@@ -252,8 +252,9 @@ class UserApiServicee {
             name: productJson['name'],
             email: productJson['email'],
             pwd: productJson['pwd'],
-            code: productJson['code'],
-            verified: productJson['verified']))
+          code: productJson['code'],
+           verified: productJson['verified']
+            ))
         .toList();
   }
 

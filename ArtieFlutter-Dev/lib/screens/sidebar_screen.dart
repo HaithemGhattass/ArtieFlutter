@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:artie/screens/profile_screen.dart';
 import 'package:artie/screens/signin_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../Constants.dart';
 import '../components/sidebar_row.dart';
@@ -82,7 +86,7 @@ class _SideBarScreenState extends State<SideBarScreen> {
                             case ConnectionState.active:
                             case ConnectionState.done:
                               return Text(
-                                'Welcome Back ${snapshot.data}',
+                                AppLocalizations.of(context)!.welcomeBack+' ${snapshot.data}',
                                 style: kHeadlineLabelStyle,
                               );
                           }
@@ -108,14 +112,38 @@ class _SideBarScreenState extends State<SideBarScreen> {
                       fullscreenDialog: true),
                 ),
                 child: SideBarRow(
-                  item: sidebarItem[0],
+                  item:   SidebarItem(
+    title: AppLocalizations.of(context)!.profile,
+    background: const LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: [
+        Color(0xFF00AEFF),
+        Color(0xFF0076FF),
+      ],
+    ),
+    icon: const Icon(
+      Icons.person,
+      color: Colors.white,
+    ),
+  ),
                 ),
               ),
               const SizedBox(height: 32.0),
               GestureDetector(
                 onTap: logout,
                 child: SideBarRow(
-                  item: sidebarItem[1],
+                  item:   SidebarItem(
+    title: AppLocalizations.of(context)!.logout,
+    background: const LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [Color(0xFFFA7d75), Color(0xFFC23D61)]),
+    icon: Icon(
+      Platform.isAndroid ? Icons.logout : CupertinoIcons.arrow_left_circle_fill,
+      color: Colors.white,
+    ),
+  ),
                 ),
               ),
               /* const SizedBox(height: 32.0),

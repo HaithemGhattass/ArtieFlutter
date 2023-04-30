@@ -20,19 +20,38 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   late Animation<double> fadeAnimation;
   late AnimationController sidebarAnimationController;
   var sidebarHidden = true;
-
+  bool isRTL = false; // Default is left-to-right (LRT)
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-
     sidebarAnimationController =
-        AnimationController(vsync: this, duration: Duration(microseconds: 250));
+        AnimationController(vsync: this, duration: Duration(milliseconds: 250));
     sidebarAnimation = Tween<Offset>(begin: Offset(-1, 0), end: Offset(0, 0))
         .animate(CurvedAnimation(
             parent: sidebarAnimationController, curve: Curves.easeInOut));
     fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
         parent: sidebarAnimationController, curve: Curves.easeInOut));
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    String langCode = AppLocalizations.of(context).localeName;
+    if (langCode == 'ar') {
+      isRTL = true; // Set the right-to-left (RTL) flag
+      sidebarAnimationController = AnimationController(
+          vsync: this, duration: Duration(milliseconds: 250));
+      sidebarAnimation = Tween<Offset>(begin: Offset(1, 0), end: Offset(0, 0))
+          .animate(CurvedAnimation(
+              parent: sidebarAnimationController, curve: Curves.easeInOut));
+    } else {
+      sidebarAnimationController = AnimationController(
+          vsync: this, duration: Duration(milliseconds: 250));
+      sidebarAnimation = Tween<Offset>(begin: Offset(-1, 0), end: Offset(0, 0))
+          .animate(CurvedAnimation(
+              parent: sidebarAnimationController, curve: Curves.easeInOut));
+    }
   }
 
   @override

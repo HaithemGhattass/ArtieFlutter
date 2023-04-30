@@ -10,6 +10,7 @@ import 'package:artie/service/imageAPI.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../service/childapi_service.dart';
 import 'addchild_screen.dart';
@@ -217,7 +218,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                           ),
                           Text(
-                            "Profile",
+                              AppLocalizations.of(context)!.profile,
                             style: kCalloutLabelStyle,
                           ),
                           GestureDetector(
@@ -301,7 +302,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  "Hello, ",
+                                    AppLocalizations.of(context)!.hello,
                                         style:  kLargeTitleStyle,
                                 ),
                                   FutureBuilder(
@@ -360,7 +361,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  " Create a special space for your kids ",
+                                                                AppLocalizations.of(context)!.createaspecialspaceforyourkids,
+
+                                  
                                         style: kSecondaryCalloutLabelStyle,
                                 ),
                                 GestureDetector(
@@ -449,7 +452,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 bottom: 12.0,
               ),
             ),
-                 Text(random+"  "+"Space",
+                 Text(random+"  "+ AppLocalizations.of(context)!.space,
+
                                   style: kHeadlineLabelStyle,
                                 ),
                                   Padding(

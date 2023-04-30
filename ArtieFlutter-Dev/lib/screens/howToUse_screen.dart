@@ -53,7 +53,7 @@ class _HowToUseScreenState extends State<HowToUseScreen> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 32.0),
             child: Text(
-              AppLocalizations.of(context).howtouseArtieFeatures,
+              AppLocalizations.of(context)!.howtouseArtieFeatures,
               style: kTitle2Style,
             ),
           ),
@@ -63,12 +63,13 @@ class _HowToUseScreenState extends State<HowToUseScreen> {
                 onTap: () {
                   setState(() {
                     if (tapped) {
-                      howto = 'select something ...';
+                      howto = AppLocalizations.of(context)!.selectsomething;
+
                       tapped = false;
                     } else {
                       tapped = true;
-                      howto =
-                          'To use Artie the drawing robot, first ensure that it is fully charged. Once charged, place Artie in the center of the page you wish to draw on. It is important to ensure that the robot is centered as this will ensure the best results. Once the robot is in position, turn it on and select the desired drawing mode . It is important to note that if the robot is not charged properly, it may encounter problems during the drawing process. Therefore, always make sure to charge the robot fully before using it.';
+                      howto = AppLocalizations.of(context)!
+                          .touseArtiethedrawingrobotfirstensurethatitisfullychargedOncechargedplaceArtieinthecenterofthepageyouwishtodrawonItisimportanttoensurethattherobotiscenteredasthiswillensurethebestresultsOncetherobotisinpositionturnitonandselectthedesireddrawingmodeItisimportanttonotethatiftherobotisnotchargedproperlyitmayencounterproblemsduringthedrawingprocessThereforealwaysmakesuretochargetherobotfullybeforeusingit;
                     }
                   });
                 },
