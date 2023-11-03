@@ -1,0 +1,83 @@
+  {
+    "login": "CONNEXION",
+    "name": "Nom de l'enfant",
+        "nameP": "Nom",
+  "hello":"Bonjour,",
+  "createaspecialspaceforyourkids":"Créez un espace pour vos enfants.",
+
+    "imaginarium,":"Imaginarium",
+    "createSpace":"Créer Un Espace",
+    "age":"Age",
+    "password": "Mot de passe",
+    "chooseAnImage":"Choisir une image",
+    "save":"Enregistrer",
+    "cancel":"Annuler",
+    "doYouWantToDesignTheImage":"Voulez-vous dessigner l'image ?",
+    "whatwouldyouliketocolor":"Que souhaitez-vous colorier ?",
+    "simpleshapes":"formes simples",
+    "complexdraws":"Dessins complexes",
+    "rememberme":"Se souvenir de moi",
+    "search":"Recherche",
+    "email":"Email",
+    "forgotpassword":"avez-vous oublié le mot de passe ?",
+    "connectwithartieforafantasicexperience":"Connectez-vous à Artie pour une expérience fantastique",
+    "artietherobot":"Artie le Robot",
+    "pleaseenteryourname":"Veuillez entrer votre nom",
+    "choose":"Choisir",
+    "change":"Changer",
+    "donthaveanaccountSignup":"Vous n'avez pas de compte ? Inscrivez-vous.",
+    "alreadyhaveanaccountsignin":"Vous avez déjà un compte ? Connectez-vous",
+    "welcomeBack":"Bienvenue de retour ",
+    "profile":"Profil",
+    "children":"Enfants",
+    "otp":"OTP",
+    "verify":"Vérifier",
+      "touseArtiethedrawingrobotfirstensurethatitisfullychargedOncechargedplaceArtieinthecenterofthepageyouwishtodrawonItisimportanttoensurethattherobotiscenteredasthiswillensurethebestresultsOncetherobotisinpositionturnitonandselectthedesireddrawingmodeItisimportanttonotethatiftherobotisnotchargedproperlyitmayencounterproblemsduringthedrawingprocessThereforealwaysmakesuretochargetherobotfullybeforeusingit":"Pour utiliser Artie, le robot dessinateur, assurez-vous d'abord qu'il est complètement chargé. Une fois chargé, placez Artie au centre de la page sur laquelle vous souhaitez dessiner. Il est important de s'assurer que le robot est centré car cela garantira les meilleurs résultats. Une fois le robot en position, allumez-le et sélectionnez le mode de dessin souhaité. Il est important de noter que si le robot n'est pas correctement chargé, il peut rencontrer des problèmes lors du processus de dessin. Par conséquent, assurez-vous toujours de charger le robot complètement avant de l'utiliser.",
+  "selectsomething":"Sélectionner quelque chose ...",
+  "howtouseArtieFeatures":"Comment utiliser les fonctionnalités Artie",
+   "artiefeatures":"Fonctionnalités Artie",
+  "thisisthebetaversionmorecoming":"Ceci est la version bêta, plus à venir",
+  "comingsoon":"Bientôt disponible",
+  "send":"Envoyer",
+  "aboutthisFeature":"À propos de cette fonctionnalité",
+  "play":"jouer",
+  "enjoywithArtie":"Profitez avec Artie",
+  "returne":"Retourner",
+  "update":"Maitre à jour",
+    "space":"Espace",
+        "logout":"Déconnexion",
+              "learntocoloranddraw":"Apprenez à colorier et dessiner",
+               "learning":"Apprentissage",
+ "exploredifferentshapesandcolorsYouarepresentedwithaseriesofshapesandyoumustchoosethecorrectonetoprogresstothenextlevelOnceyouhaveselectedthecorrectshapeArtiebeginstodrawitonthescreenYouwillneedtorepeatthisprocesswithalltheshapesuntilthedrawingis":"Explorez différentes formes et couleurs. Vous êtes présenté avec une série de formes et vous devez choisir la bonne pour progresser au niveau suivant. Une fois que vous avez sélectionné la bonne forme, Artie commence à la dessiner à l'écran. Vous devrez répéter ce processus avec toutes les formes jusqu'à ce que le dessin soit complet. Une fois que toutes les formes sont dessinées, vous pouvez commencer à colorier l'image en utilisant une variété de couleurs et d'outils différents. Ce jeu est parfait pour tous ceux qui aiment les puzzles et veulent libérer leur artiste intérieur.",
+                              "learntocoloranddrawwithArtie":"Apprenez à colorier et dessiner avec Artie",
+                              "remotecontrolArtie":"Télécommande Artie à distance",
+        "remote":"Télécommande",
+        "controlartiewithyourremote":"Contrôlez Artie avec votre télécommande",
+        "withthecontrollerinhandyoucansendArtieinanydirectionyouchooseguidingitaroundcornersoverobstaclesandthroughtightspaces":"Avec la manette en main, vous pouvez envoyer Artie dans n'importe quelle direction que vous choisissez, en le guidant autour des coins, par-dessus les obstacles et à travers les espaces étroits. Cette télécommande est parfaite pour les enfants qui aiment les jeux d'action et veulent vivre le frisson de contrôler un puissant robot char d'assaut.",
+        "futurepicturestodraw":"Des images du futur à dessiner"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+  }  

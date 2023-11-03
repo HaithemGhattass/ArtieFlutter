@@ -1,0 +1,76 @@
+  {
+    "login": "تسجيل الدخول",
+    "name": "اسم الطفل",
+    "nameP": "اسم",
+  "hello":"مرحبا,",
+
+    "createSpace":"إنشاء فضاء",
+    "age":"العمر",
+      "chooseAnImage":"اختر صورة",
+      "save":"حفظ",
+      "password": "كلمة المرور",  
+      "cancel":"إلغاء",
+        "doYouWantToDesignTheImage":"هل تريد تصميم الصورة؟",
+  "whatwouldyouliketocolor":"ما الذي ترغب في تلوينه؟",
+  "simpleshapes":"الأشكال البسيطة",
+    "complexdraws":"رسومات معقدة",
+          "rememberme":"تذكرني",
+            "search":"بحث",
+            "email":"البريد الإلكتروني",
+        "forgotpassword":"هل نسيت كلمة المرور؟",
+          "connectwithartieforafantasicexperience":"اتصل بـ Artie لتجربة رائعة",
+            "artietherobot":" الروبوتArtie ",
+            "pleaseenteryourname":"يرجى إدخال اسمك",
+            "choose":"اختر",
+            "change":"تغيير",
+                                     "donthaveanaccountSignup":"ليس لديك حساب؟ قم بالتسجيل",
+               "alreadyhaveanaccountsignin":"هل لديك حساب بالفعل؟ قم بتسجيل الدخول",
+             "welcomeBack":"مرحبًا بعودتك ",
+            "profile":"الملف الشخصي",
+"children":"أطفال",
+"otp":"OTP",
+  "verify":"تحقق",
+    "touseArtiethedrawingrobotfirstensurethatitisfullychargedOncechargedplaceArtieinthecenterofthepageyouwishtodrawonItisimportanttoensurethattherobotiscenteredasthiswillensurethebestresultsOncetherobotisinpositionturnitonandselectthedesireddrawingmodeItisimportanttonotethatiftherobotisnotchargedproperlyitmayencounterproblemsduringthedrawingprocessThereforealwaysmakesuretochargetherobotfullybeforeusingit":"لاستخدام آرتي، الروبوت المخصص للرسم، تأكد أولاً من أنه مشحون بالكامل. بمجرد الانتهاء من الشحن، ضع آرتي في وسط الصفحة التي تريد الرسم عليها. من المهم التأكد من توسيط الروبوت حتى يتم تحقيق أفضل النتائج. بمجرد أن يكون الروبوت في الموضع المناسب، قم بتشغيله واختر وضع الرسم المرغوب فيه. من المهم الانتباه إلى أنه إذا لم يتم شحن الروبوت بشكل صحيح، فقد يواجه مشاكل أثناء عملية الرسم. لذلك، تأكد دائمًا من شحن الروبوت بالكامل قبل استخدامه."
+,
+  "selectsomething":" ...اختر شيئًا ",
+  "howtouseArtieFeatures":"Artie كيفية استخدام ميزات",
+    "artiefeatures":"Artie ميزات",
+  "thisisthebetaversionmorecoming":" التجريبية بيتا، المزيد قادم",
+  "comingsoon":"قريباً",
+  "send":"إرسال",
+  "aboutthisFeature":"حول هذه الميزة",
+  "play":"لعب",
+  "enjoywithArtie":" Artie استمتع مع   ",
+  "returne":"رجوع",
+  "update":"تحديث",
+    "createaspecialspaceforyourkids":"أنشئ مساحة خاصة لأطفالك.",
+      "space":"فضاء",
+          "logout":"تسجيل الخروج",
+ "learntocoloranddraw":"تعلم الرسم والتلوين",
+ "learning":"تعلّم",
+        "exploredifferentshapesandcolorsYouarepresentedwithaseriesofshapesandyoumustchoosethecorrectonetoprogresstothenextlevelOnceyouhaveselectedthecorrectshapeArtiebeginstodrawitonthescreenYouwillneedtorepeatthisprocesswithalltheshapesuntilthedrawingis":"استكشف أشكالًا وألوانًا مختلفة. يتم تقديم سلسلة من الأشكال لك ، ويجب عليك اختيار الشكل الصحيح للمضي قدمًا إلى المستوى التالي. بمجرد اختيارك للشكل الصحيح ، يبدأ آرتي في رسمه على الشاشة. ستحتاج إلى تكرار هذه العملية مع جميع الأشكال حتى يتم إكمال الرسم. بمجرد رسم جميع الأشكال ، يمكنك البدء في تلوين الصورة باستخدام مجموعة متنوعة من الألوان والأدوات. هذه اللعبة مثالية لأي شخص يحب الألغاز ويرغب في إطلاق فنانه الداخلي.",
+        "learntocoloranddrawwithArtie":"تعلّم الرسم والتلوين مع آرتي",
+"remotecontrolArtie":"تحكم عن بعد في آرتي",
+        "remote":" التحكم عن بعد",
+        "controlartiewithyourremote":"تحكم في آرتي باستخدام جهاز التحكم عن بعد الخاص بك",
+        "withthecontrollerinhandyoucansendArtieinanydirectionyouchooseguidingitaroundcornersoverobstaclesandthroughtightspaces":"بواسطة جهاز التحكم باليد ، يمكنك إرسال أرتي في أي اتجاه تختاره ، موجهًا إياه حول الزوايا وفوق العقبات وعبر المساحات الضيقة. هذا الجهاز عن بعد مثالي للأطفال الذين يحبون الألعاب المليئة بالحركة ويرغبون في تجربة الإثارة التي تأتي مع التحكم في روبوت دبابة قوي ولا يمكن إيقافه.",
+                        "futurepicturestodraw":"صور مستقبلية للرسم"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }  

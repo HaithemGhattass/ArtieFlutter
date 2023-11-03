@@ -1,0 +1,68 @@
+{
+  "hello":"Hello,",
+  "login": "Login",
+  "learntocoloranddraw":"Learn to color and draw",
+  "name": "Child Name",
+  "nameP": "Name",
+  "createSpace":"Create Space",
+  "age":"Age",
+  "chooseAnImage":"Choose an Image",
+  "save":"Save",
+  "cancel":"Cancel",
+  "password": "Password",
+  "futurepicturestodraw": "future picture to draw",
+  "doYouWantToDesignTheImage":"Do you want to design the image?",
+  "whatwouldyouliketocolor":"What would you\nlike to color?",
+  "simpleshapes":"Simple Shapes",
+  "complexdraws":"Complex Draws",
+  "rememberme":"Remember Me",
+  "search":"Search",
+  "email":"Email",
+  "forgotpassword":"Forgot password?",
+  "connectwithartieforafantasicexperience":"Connect with Artie\n For a fantasic experience",
+  "artietherobot":"Artie the Robot",
+  "pleaseenteryourname":"pleaseenteryourname",
+  "choose":"choose",
+  "change":"change",
+  "donthaveanaccountSignup":"Dont have an account ? Sign up",
+  "alreadyhaveanaccountsignin":"Already have an account sign in",
+  "welcomeBack":"Welcome Back ",
+  "profile":"Profile",
+  "children":"children",
+  "otp":"OTP",
+  "verify":"VERIFY",
+  "touseArtiethedrawingrobotfirstensurethatitisfullychargedOncechargedplaceArtieinthecenterofthepageyouwishtodrawonItisimportanttoensurethattherobotiscenteredasthiswillensurethebestresultsOncetherobotisinpositionturnitonandselectthedesireddrawingmodeItisimportanttonotethatiftherobotisnotchargedproperlyitmayencounterproblemsduringthedrawingprocessThereforealwaysmakesuretochargetherobotfullybeforeusingit":"To use Artie the drawing robot, first ensure that it is fully charged. Once charged, place Artie in the center of the page you wish to draw on. It is important to ensure that the robot is centered as this will ensure the best results. Once the robot is in position, turn it on and select the desired drawing mode . It is important to note that if the robot is not charged properly, it may encounter problems during the drawing process. Therefore, always make sure to charge the robot fully before using it.",
+  "selectsomething":"select something ...",
+  "howtouseArtieFeatures":"How to use Artie Features",
+  "artiefeatures":"Artie Features",
+  "thisisthebetaversionmorecoming":"this is the beta version more coming",
+  "comingsoon":"Coming soon",
+  "send":"SEND",
+  "aboutthisFeature":"About this Feature",
+  "play":"Play",
+  "enjoywithArtie":"Enjoy with Artie",
+  "returne":"RETURN",
+  "update":"Update",
+  "createaspecialspaceforyourkids":"Create a special space for your kids",
+  "space":"Space",
+      "logout":"Logout",
+      "learntocoloranddraw":"Apprenez à colorier et dessiner",
+       "learning":"Learning",
+       "exploredifferentshapesandcolorsYouarepresentedwithaseriesofshapesandyoumustchoosethecorrectonetoprogresstothenextlevelOnceyouhaveselectedthecorrectshapeArtiebeginstodrawitonthescreenYouwillneedtorepeatthisprocesswithalltheshapesuntilthedrawingis":"Explore different shapes and colors. You are presented with a series of shapes, and you must choose the correct one to progress to the next level. Once you have selected the correct shape, Artie begins to draw it on the screen. You will need to repeat this process with all the shapes until the drawing is complete. Once all the shapes are drawn, you can start to color the image, using a variety of different colors and tools. This game is perfect for anyone who enjoys puzzles and wants to unleash their inner artist.",
+        "learntocoloranddrawwithArtie":"Apprenez à colorier et dessiner avec Artie",
+        "remotecontrolArtie":"Remote control Artie",
+        "remote":"Remote",
+        "controlartiewithyourremote":"control artie with your remote",
+        "withthecontrollerinhandyoucansendArtieinanydirectionyouchooseguidingitaroundcornersoverobstaclesandthroughtightspaces":"With the controller in hand, you can send Artie in any direction you choose, guiding it around corners, over obstacles, and through tight spaces, This remote is perfect for children who enjoy action-packed games and want to experience the thrill of controlling a powerful and unstoppable tank robot.",
+                "futurepicturestodraw":"Future pictures to draw"
+
+
+
+
+
+
+
+
+
+
+}
